@@ -1,0 +1,20 @@
+COPY REAL WEBSITE V2 — SOURCE NOTES
+
+This build expands V1 using actual production assets, not dummy covers.
+
+BOOK ARTWORK
+- 39 book-cover thumbnails recovered from:
+  chasburns-static-v7-2-audited.zip
+  media/books/book-001.jpg through book-039.jpg
+- Existing higher-resolution V1 assets retained for current productions.
+
+AUDIO ARTWORK
+- 15 AudioVerse archive covers recovered from the audited ChasBurns.com build.
+- Existing outbound YouTube/playlist links were carried across from that audited site.
+- Current Copy Real audio assets for Monaloy and The Lion, the Witch and the Wardrobe retained.
+
+IMPORTANT
+- Rights-sensitive and classic titles are explicitly marked as territory-specific.
+- No public contact address is invented.
+- Retail links are not invented.
+- AudioVerse CFX wording has been corrected to avoid claiming added music.
