@@ -6,7 +6,8 @@ if(catalogueSearch){catalogueSearch.addEventListener('input',()=>{const q=catalo
 
 /* Retail links -----------------------------------------------------------
    Book catalogue cards continue to open the Copy Real title page first.
-   On each individual book page we add a purchase button for Amazon UK.
+   On each individual book page we add a purchase button for Amazon UK and
+   make the displayed cover itself open the same purchase destination.
    Where a verified KDP ASIN is known we link directly to the product page;
    otherwise an exact KDP-style title + author Amazon Books search is used so
    no unverified ASIN is ever guessed. No affiliate tracking is applied. */
@@ -76,20 +77,40 @@ if(catalogueSearch){catalogueSearch.addEventListener('input',()=>{const q=catalo
     detail.appendChild(actions);
   }
 
-  if(actions.querySelector('[data-amazon-buy]')) return;
-  const buy=document.createElement('a');
-  buy.className='btn primary';
-  buy.href=amazonUrl;
-  buy.target='_blank';
-  buy.rel='noopener noreferrer';
-  buy.dataset.amazonBuy='';
-  buy.textContent='Buy on Amazon';
-  buy.setAttribute('aria-label','Buy '+title+' on Amazon UK');
-  actions.prepend(buy);
+  if(!actions.querySelector('[data-amazon-buy]')){
+    const buy=document.createElement('a');
+    buy.className='btn primary';
+    buy.href=amazonUrl;
+    buy.target='_blank';
+    buy.rel='noopener noreferrer';
+    buy.dataset.amazonBuy='';
+    buy.textContent='Buy on Amazon';
+    buy.setAttribute('aria-label','Buy '+title+' on Amazon UK');
+    actions.prepend(buy);
 
-  const note=document.createElement('div');
-  note.className='fine';
-  note.style.marginTop='10px';
-  note.textContent='Amazon availability and formats may vary by country.';
-  actions.insertAdjacentElement('afterend',note);
+    const note=document.createElement('div');
+    note.className='fine';
+    note.style.marginTop='10px';
+    note.textContent='Amazon availability and formats may vary by country.';
+    actions.insertAdjacentElement('afterend',note);
+  }
+
+  const cover=document.querySelector('main .detail-cover');
+  if(cover && !cover.closest('[data-amazon-cover]')){
+    const coverLink=document.createElement('a');
+    coverLink.href=amazonUrl;
+    coverLink.target='_blank';
+    coverLink.rel='noopener noreferrer';
+    coverLink.dataset.amazonCover='';
+    coverLink.title='Buy '+title+' on Amazon UK';
+    cover.parentNode.insertBefore(coverLink,cover);
+    coverLink.appendChild(cover);
+  }
 })();
+
+/* Make the free companion archive easy to find without crowding the main nav. */
+document.querySelectorAll('.footer-links').forEach(footer=>{
+  if(!footer.querySelector('a[href="/downloads/"]')){
+    const a=document.createElement('a');a.href='/downloads/';a.textContent='Downloads';footer.appendChild(a);
+  }
+});
