@@ -3,7 +3,7 @@ name: Unpack CopyReal site
 on:
   push:
     paths:
-      - 'copyreal_website_v4.zip'
+      - 'copyreal_website_v5.zip'
 
 permissions:
   contents: write
@@ -19,12 +19,13 @@ jobs:
         run: |
           rm -rf .site-unpack
           mkdir .site-unpack
-          unzip -q -o copyreal_website_v4.zip -d .site-unpack
+          unzip -q -o copyreal_website_v5.zip -d .site-unpack
           shopt -s dotglob
           for item in .site-unpack/*; do
             cp -R "$item" ./
           done
           rm -rf .site-unpack
+          rm -f copyreal_website_v5.zip
 
       - name: Commit deployed site files
         run: |
@@ -34,6 +35,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No site changes to commit."
           else
-            git commit -m "Deploy CopyReal.com V4 site files"
+            git commit -m "Deploy CopyReal.com V5 site files"
             git push
           fi
