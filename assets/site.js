@@ -107,10 +107,3 @@ if(catalogueSearch){catalogueSearch.addEventListener('input',()=>{const q=catalo
     coverLink.appendChild(cover);
   }
 })();
-
-/* Make the free companion archive easy to find without crowding the main nav. */
-document.querySelectorAll('.footer-links').forEach(footer=>{
-  if(!footer.querySelector('a[href="/downloads/"]')){
-    const a=document.createElement('a');a.href='/downloads/';a.textContent='Downloads';footer.appendChild(a);
-  }
-});
