@@ -22,9 +22,7 @@ if(catalogueSearch){catalogueSearch.addEventListener('input',()=>{const q=catalo
 
   const verifiedAmazon={
     'Project 2025':'https://www.amazon.co.uk/dp/B0F6VLJBNC',
-    'Project 2025: For The Balanced Individual':'https://www.amazon.co.uk/dp/B0F6VLJBNC',
-    'What Is Happening Now?':'https://www.amazon.co.uk/dp/B0H3C32ZDP',
-    'What Is Happening Now':'https://www.amazon.co.uk/dp/B0H3C32ZDP'
+    'Project 2025: For The Balanced Individual':'https://www.amazon.co.uk/dp/B0F6VLJBNC'
   };
 
   const kdpSearchTitles={
