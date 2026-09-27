@@ -2,7 +2,7 @@
 
 Source: Copy Real Books Drive / All Book Covers: https://drive.google.com/drive/folders/1dzX1Enq5_maE3s3ruUvNZTDJpT9cA45Y
 
-Status: folder metadata rechecked after final user upload. These are *source files*, not finished newly branded exports. Do not infer that an audiobook has been completed just because cover art exists. Existing originals must be preserved. User confirms **Mondaloy** (with D) is the canonical title; website and old assets currently spell it `Mondaloy`. Do not conflate the title and filename migrations: preserve old asset filenames until replacement paths are updated and tested.
+Status: folder metadata rechecked after final user upload. These are *source files*, not finished newly branded exports. Do not infer that an audiobook has been completed just because cover art exists. Existing originals must be preserved. User confirms **Mondaloy** is the canonical title; website and old assets currently spell it `Mondaloy`. Do not conflate the title and filename migrations: preserve old asset filenames until replacement paths are updated and tested.
 
 ## Identifiable audio or edition artwork
 
