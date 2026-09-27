@@ -8,7 +8,7 @@ Date: 27 September 2026. Source: user-supplied All Book Covers folder and existi
 - Pure Narration: original artwork, COPY REAL AUDIO branding, a legible `PURE NARRATION` identifier and established gold microphone identity. No legacy AV mark.
 - CFX: coordinated artwork with COPY REAL CFX and `CINEMATIC EDITION` identifier; visually distinct from PN at thumbnail size. No old brand. CFX editions use sound design without added music.
 - Preserve approved art. Do not manufacture a corresponding edition merely because one edition's image exists.
-- Exact title/author/narrator text must be verified; **Mondoloi** is canonical, not `Monaloy` or `Mondoloid`.
+- Exact title/author/narrator text must be verified; **Mondaloy** is canonical, not `Mondaloy` or `Mondaloy`.
 
 ## Queue based on identifiable assets, not on assumed audio completion
 
@@ -18,7 +18,7 @@ Date: 27 September 2026. Source: user-supplied All Book Covers folder and existi
 4. The Coming Race: review existing PN image. No CFX implied.
 5. Prince Caspian: review both PN and CFX JPG/PNG pairs, remove old branding only where present; verify territorial permissions and product status.
 6. Crimea, What Is Happening Now? and Isan Bedtime Stories: inspect artwork, confirm actual edition, then determine rebranding requirements.
-7. Mondoloi: use old `monaloy-audio.jpg` and any approved book artwork as visual reference. Plan consistent new branding and correct printed title; retain legacy file/URL aliases until tested.
+7. Mondaloy: use old `monaloy-audio.jpg` and any approved book artwork as visual reference. Plan consistent new branding and correct printed title; retain legacy file/URL aliases until tested.
 8. Apocalypse Park, Trion: Ascension, Glitch, The Last Exodus, Free Party: reference art only until the corresponding audiobook production is verified complete.
 
 ## Review checklist
