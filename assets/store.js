@@ -31,13 +31,22 @@
   // cards with the same payment-ready controls instead of duplicating sections.
   let section=document.querySelector('.direct-store');
   if(section){
-    if(!section.id) section.id='buy-direct';
+    // Older prototype markup already places #buy-direct on its heading. Keep
+    // that anchor rather than creating a duplicate id on the section itself.
+    if(!section.id && !section.querySelector('#buy-direct')) section.id='buy-direct';
     section.querySelectorAll('.edition-card').forEach(card=>{
       if(card.querySelector('.payment-options')) return;
       const heading=card.querySelector('h3')?.textContent.trim()||'this edition';
       const status=card.querySelector('.store-status');
       if(status) status.insertAdjacentHTML('beforebegin',paymentMarkup(heading).replace('<span class="store-status">Unavailable for now</span>',''));
     });
+    if(!section.querySelector('.checkout-note')){
+      const privacy=section.querySelector('.privacy-note');
+      const note=document.createElement('p');
+      note.className='checkout-note';
+      note.innerHTML='<strong>Checkout:</strong> Stripe will handle card and supported wallet payments; PayPal will be available as an alternative. Payment details are handled by the payment provider, not stored by Copy Real.';
+      if(privacy) section.insertBefore(note,privacy); else section.appendChild(note);
+    }
     return;
   }
 
