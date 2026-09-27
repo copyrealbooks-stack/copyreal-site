@@ -17,6 +17,27 @@
         "pn": { "enabled": false, "price": null, "stripeProduct": null, "paypalProduct": null, "deliveryTarget": null },
         "cfx": { "enabled": false, "price": null, "stripeProduct": null, "paypalProduct": null, "deliveryTarget": null }
       }
+    },
+    "lion-witch-wardrobe": {
+      "title": "The Lion, the Witch and the Wardrobe",
+      "territories": { "mode": "restricted", "allow": [], "deny": [] },
+      "rightsStatus": "territory-rules-pending",
+      "editions": {
+        "ebook": { "enabled": false, "price": null, "stripeProduct": null, "paypalProduct": null, "deliveryTarget": null },
+        "pn": { "enabled": false, "price": null, "stripeProduct": null, "paypalProduct": null, "deliveryTarget": null },
+        "cfx": { "enabled": false, "price": null, "stripeProduct": null, "paypalProduct": null, "deliveryTarget": null }
+      }
+    },
+    "prince-caspian": {
+      "title": "Prince Caspian",
+      "territories": { "mode": "restricted", "allow": [], "deny": [] },
+      "rightsStatus": "territory-rules-pending",
+      "productionStatus": "audio-cleanup-pending",
+      "editions": {
+        "ebook": { "enabled": false, "price": null, "stripeProduct": null, "paypalProduct": null, "deliveryTarget": null },
+        "pn": { "enabled": false, "price": null, "stripeProduct": null, "paypalProduct": null, "deliveryTarget": null },
+        "cfx": { "enabled": false, "price": null, "stripeProduct": null, "paypalProduct": null, "deliveryTarget": null }
+      }
     }
   }
 }
