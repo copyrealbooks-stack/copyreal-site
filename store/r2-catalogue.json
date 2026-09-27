@@ -1,0 +1,1134 @@
+{
+  "generatedFrom": "2026-09-27 Copy Real R2 inventory CSV",
+  "note": "Metadata only. Folder existence does not indicate an uploaded file, cover, available edition or distribution right. R2 prefix monaloy is retained; display title Mondoloi is corrected.",
+  "books": [
+    {
+      "slug": "1984",
+      "title": "Nineteen Eighty-Four",
+      "r2Prefix": "books/1984/",
+      "websitePage": "../books/1984/",
+      "coverStatus": "website-artwork",
+      "editions": [
+        {
+          "sku": "1984-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "1984-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "1984-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "42",
+      "title": "42",
+      "r2Prefix": "books/42/",
+      "websitePage": "../books/42/",
+      "coverStatus": "website-artwork",
+      "editions": [
+        {
+          "sku": "42-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "42-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "42-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "actors-companion-2",
+      "title": "An Actor's Monologue Bible: Actors Companion — Vol. 2",
+      "r2Prefix": "books/actors-companion-2/",
+      "websitePage": "../books/actors-companion-2/",
+      "coverStatus": "website-artwork",
+      "editions": [
+        {
+          "sku": "ACTORS-COMPANION-2-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "ACTORS-COMPANION-2-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "ACTORS-COMPANION-2-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "actors-companion-3",
+      "title": "Actors Companion — Vol. 3",
+      "r2Prefix": "books/actors-companion-3/",
+      "websitePage": "../books/actors-companion-3/",
+      "coverStatus": "website-artwork",
+      "editions": [
+        {
+          "sku": "ACTORS-COMPANION-3-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "ACTORS-COMPANION-3-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "ACTORS-COMPANION-3-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "actors-survival-guide",
+      "title": "An Actor's Survival Guide",
+      "r2Prefix": "books/actors-survival-guide/",
+      "websitePage": "../books/actors-survival-guide/",
+      "coverStatus": "website-artwork",
+      "editions": [
+        {
+          "sku": "ACTORS-SURVIVAL-GUIDE-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "ACTORS-SURVIVAL-GUIDE-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "ACTORS-SURVIVAL-GUIDE-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "apocalypse-park",
+      "title": "Apocalypse Park",
+      "r2Prefix": "books/apocalypse-park/",
+      "websitePage": null,
+      "coverStatus": "awaiting-artwork",
+      "editions": [
+        {
+          "sku": "APOCALYPSE-PARK-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "APOCALYPSE-PARK-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "APOCALYPSE-PARK-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "ash-and-iron-the-martian-shadow",
+      "title": "The Martian Shadow",
+      "r2Prefix": "books/ash-and-iron-the-martian-shadow/",
+      "websitePage": null,
+      "coverStatus": "awaiting-artwork",
+      "editions": [
+        {
+          "sku": "ASH-AND-IRON-THE-MARTIAN-SHADOW-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "ASH-AND-IRON-THE-MARTIAN-SHADOW-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "ASH-AND-IRON-THE-MARTIAN-SHADOW-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "blood-that-binds",
+      "title": "The Blood That Binds",
+      "r2Prefix": "books/blood-that-binds/",
+      "websitePage": "../books/blood-that-binds/",
+      "coverStatus": "website-artwork",
+      "editions": [
+        {
+          "sku": "BLOOD-THAT-BINDS-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "BLOOD-THAT-BINDS-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "BLOOD-THAT-BINDS-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "boy-they-wouldnt-name",
+      "title": "The Boy They Wouldn't Name",
+      "r2Prefix": "books/boy-they-wouldnt-name/",
+      "websitePage": "../books/boy-they-wouldnt-name/",
+      "coverStatus": "website-artwork",
+      "editions": [
+        {
+          "sku": "BOY-THEY-WOULDNT-NAME-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "BOY-THEY-WOULDNT-NAME-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "BOY-THEY-WOULDNT-NAME-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "christmas-carol",
+      "title": "A Christmas Carol",
+      "r2Prefix": "books/christmas-carol/",
+      "websitePage": "../books/christmas-carol/",
+      "coverStatus": "website-artwork",
+      "editions": [
+        {
+          "sku": "CHRISTMAS-CAROL-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "CHRISTMAS-CAROL-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "CHRISTMAS-CAROL-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "coming-race",
+      "title": "The Coming Race",
+      "r2Prefix": "books/coming-race/",
+      "websitePage": "../books/coming-race/",
+      "coverStatus": "website-artwork",
+      "editions": [
+        {
+          "sku": "COMING-RACE-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "COMING-RACE-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "COMING-RACE-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "conditions",
+      "title": "Conditions",
+      "r2Prefix": "books/conditions/",
+      "websitePage": "../books/conditions/",
+      "coverStatus": "website-artwork",
+      "editions": [
+        {
+          "sku": "CONDITIONS-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "CONDITIONS-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "CONDITIONS-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "darkness-and-dawn",
+      "title": "Darkness and Dawn",
+      "r2Prefix": "books/darkness-and-dawn/",
+      "websitePage": "../books/darkness-and-dawn/",
+      "coverStatus": "website-artwork",
+      "editions": [
+        {
+          "sku": "DARKNESS-AND-DAWN-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "DARKNESS-AND-DAWN-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "DARKNESS-AND-DAWN-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "dead-famous",
+      "title": "Dead Famous",
+      "r2Prefix": "books/dead-famous/",
+      "websitePage": "../books/dead-famous/",
+      "coverStatus": "website-artwork",
+      "editions": [
+        {
+          "sku": "DEAD-FAMOUS-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "DEAD-FAMOUS-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "DEAD-FAMOUS-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "donny",
+      "title": "Donny",
+      "r2Prefix": "books/donny/",
+      "websitePage": "../books/donny/",
+      "coverStatus": "website-artwork",
+      "editions": [
+        {
+          "sku": "DONNY-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "DONNY-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "DONNY-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "flipside",
+      "title": "Flipside",
+      "r2Prefix": "books/flipside/",
+      "websitePage": "../books/flipside/",
+      "coverStatus": "website-artwork",
+      "editions": [
+        {
+          "sku": "FLIPSIDE-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "FLIPSIDE-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "FLIPSIDE-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "frankenstein",
+      "title": "Frankenstein",
+      "r2Prefix": "books/frankenstein/",
+      "websitePage": "../books/frankenstein/",
+      "coverStatus": "website-artwork",
+      "editions": [
+        {
+          "sku": "FRANKENSTEIN-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "FRANKENSTEIN-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "FRANKENSTEIN-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "free-party",
+      "title": "Free Party",
+      "r2Prefix": "books/free-party/",
+      "websitePage": "../books/free-party/",
+      "coverStatus": "website-artwork",
+      "editions": [
+        {
+          "sku": "FREE-PARTY-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "FREE-PARTY-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "FREE-PARTY-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "glitch",
+      "title": "Glitch",
+      "r2Prefix": "books/glitch/",
+      "websitePage": "../books/glitch/",
+      "coverStatus": "website-artwork",
+      "editions": [
+        {
+          "sku": "GLITCH-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "GLITCH-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "GLITCH-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "hooked",
+      "title": "Hooked",
+      "r2Prefix": "books/hooked/",
+      "websitePage": "../books/hooked/",
+      "coverStatus": "website-artwork",
+      "editions": [
+        {
+          "sku": "HOOKED-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "HOOKED-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "HOOKED-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "isan-bedtime-stories",
+      "title": "Isan Bedtime Stories for Children",
+      "r2Prefix": "books/isan-bedtime-stories/",
+      "websitePage": "../books/isan-bedtime-stories/",
+      "coverStatus": "website-artwork",
+      "editions": [
+        {
+          "sku": "ISAN-BEDTIME-STORIES-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "ISAN-BEDTIME-STORIES-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "ISAN-BEDTIME-STORIES-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "its-only-me",
+      "title": "It's Only Me",
+      "r2Prefix": "books/its-only-me/",
+      "websitePage": "../books/its-only-me/",
+      "coverStatus": "website-artwork",
+      "editions": [
+        {
+          "sku": "ITS-ONLY-ME-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "ITS-ONLY-ME-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "ITS-ONLY-ME-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "kings-road",
+      "title": "King's Road",
+      "r2Prefix": "books/kings-road/",
+      "websitePage": null,
+      "coverStatus": "awaiting-artwork",
+      "editions": [
+        {
+          "sku": "KINGS-ROAD-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "KINGS-ROAD-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "KINGS-ROAD-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "last-exodus",
+      "title": "The Last Exodus",
+      "r2Prefix": "books/last-exodus/",
+      "websitePage": "../books/last-exodus/",
+      "coverStatus": "website-artwork",
+      "editions": [
+        {
+          "sku": "LAST-EXODUS-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "LAST-EXODUS-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "LAST-EXODUS-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "last-road-stroud",
+      "title": "Last Road to Stroud",
+      "r2Prefix": "books/last-road-stroud/",
+      "websitePage": "../books/last-road-stroud/",
+      "coverStatus": "website-artwork",
+      "editions": [
+        {
+          "sku": "LAST-ROAD-STROUD-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "LAST-ROAD-STROUD-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "LAST-ROAD-STROUD-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "lion-witch-wardrobe",
+      "title": "The Lion, the Witch and the Wardrobe",
+      "r2Prefix": "books/lion-witch-wardrobe/",
+      "websitePage": null,
+      "coverStatus": "awaiting-artwork",
+      "editions": [
+        {
+          "sku": "LION-WITCH-WARDROBE-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "LION-WITCH-WARDROBE-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "LION-WITCH-WARDROBE-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "lovelock-manor",
+      "title": "The Secret of Lovelock Manor",
+      "r2Prefix": "books/lovelock-manor/",
+      "websitePage": "../books/lovelock-manor/",
+      "coverStatus": "website-artwork",
+      "editions": [
+        {
+          "sku": "LOVELOCK-MANOR-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "LOVELOCK-MANOR-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "LOVELOCK-MANOR-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "made-for-me",
+      "title": "Made for Me",
+      "r2Prefix": "books/made-for-me/",
+      "websitePage": "../books/made-for-me/",
+      "coverStatus": "website-artwork",
+      "editions": [
+        {
+          "sku": "MADE-FOR-ME-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "MADE-FOR-ME-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "MADE-FOR-ME-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "monaloy",
+      "title": "Mondoloi",
+      "r2Prefix": "books/monaloy/",
+      "websitePage": "../books/monaloy/",
+      "coverStatus": "website-artwork",
+      "editions": [
+        {
+          "sku": "MONDOLOI-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "MONDOLOI-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "MONDOLOI-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "murder-at-vicarage",
+      "title": "The Murder at the Vicarage",
+      "r2Prefix": "books/murder-at-vicarage/",
+      "websitePage": "../books/murder-at-vicarage/",
+      "coverStatus": "website-artwork",
+      "editions": [
+        {
+          "sku": "MURDER-AT-VICARAGE-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "MURDER-AT-VICARAGE-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "MURDER-AT-VICARAGE-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "nice-knowing-you",
+      "title": "Nice Knowing You",
+      "r2Prefix": "books/nice-knowing-you/",
+      "websitePage": "../books/nice-knowing-you/",
+      "coverStatus": "website-artwork",
+      "editions": [
+        {
+          "sku": "NICE-KNOWING-YOU-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "NICE-KNOWING-YOU-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "NICE-KNOWING-YOU-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "project-2025",
+      "title": "Project 2025",
+      "r2Prefix": "books/project-2025/",
+      "websitePage": "../books/project-2025/",
+      "coverStatus": "website-artwork",
+      "editions": [
+        {
+          "sku": "PROJECT-2025-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "PROJECT-2025-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "PROJECT-2025-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "psychic-service",
+      "title": "His Majesty's Psychic Service",
+      "r2Prefix": "books/psychic-service/",
+      "websitePage": "../books/psychic-service/",
+      "coverStatus": "website-artwork",
+      "editions": [
+        {
+          "sku": "PSYCHIC-SERVICE-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "PSYCHIC-SERVICE-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "PSYCHIC-SERVICE-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "redacted-volume-i",
+      "title": "[REDACTED] — Volume I",
+      "r2Prefix": "books/redacted-volume-i/",
+      "websitePage": "../books/redacted-volume-i/",
+      "coverStatus": "website-artwork",
+      "editions": [
+        {
+          "sku": "REDACTED-VOLUME-I-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "REDACTED-VOLUME-I-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "REDACTED-VOLUME-I-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "redacted-volume-ii",
+      "title": "[REDACTED] — Volume II",
+      "r2Prefix": "books/redacted-volume-ii/",
+      "websitePage": "../books/redacted-volume-ii/",
+      "coverStatus": "website-artwork",
+      "editions": [
+        {
+          "sku": "REDACTED-VOLUME-II-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "REDACTED-VOLUME-II-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "REDACTED-VOLUME-II-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "sex-with-aliens",
+      "title": "Sex with Aliens",
+      "r2Prefix": "books/sex-with-aliens/",
+      "websitePage": "../books/sex-with-aliens/",
+      "coverStatus": "website-artwork",
+      "editions": [
+        {
+          "sku": "SEX-WITH-ALIENS-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "SEX-WITH-ALIENS-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "SEX-WITH-ALIENS-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "sex-with-robots",
+      "title": "Sex with Robots",
+      "r2Prefix": "books/sex-with-robots/",
+      "websitePage": null,
+      "coverStatus": "awaiting-artwork",
+      "editions": [
+        {
+          "sku": "SEX-WITH-ROBOTS-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "SEX-WITH-ROBOTS-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "SEX-WITH-ROBOTS-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "sleepless-man",
+      "title": "The Sleepless Man",
+      "r2Prefix": "books/sleepless-man/",
+      "websitePage": "../books/sleepless-man/",
+      "coverStatus": "website-artwork",
+      "editions": [
+        {
+          "sku": "SLEEPLESS-MAN-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "SLEEPLESS-MAN-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "SLEEPLESS-MAN-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "sugar-dragon",
+      "title": "Sugar Dragon",
+      "r2Prefix": "books/sugar-dragon/",
+      "websitePage": "../books/sugar-dragon/",
+      "coverStatus": "website-artwork",
+      "editions": [
+        {
+          "sku": "SUGAR-DRAGON-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "SUGAR-DRAGON-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "SUGAR-DRAGON-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "time-machine",
+      "title": "The Time Machine",
+      "r2Prefix": "books/time-machine/",
+      "websitePage": "../books/time-machine/",
+      "coverStatus": "website-artwork",
+      "editions": [
+        {
+          "sku": "TIME-MACHINE-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "TIME-MACHINE-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "TIME-MACHINE-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "trace",
+      "title": "TRACE",
+      "r2Prefix": "books/trace/",
+      "websitePage": "../books/trace/",
+      "coverStatus": "website-artwork",
+      "editions": [
+        {
+          "sku": "TRACE-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "TRACE-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "TRACE-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "trion-ascension",
+      "title": "Trion: Ascension",
+      "r2Prefix": "books/trion-ascension/",
+      "websitePage": "../books/trion-ascension/",
+      "coverStatus": "website-artwork",
+      "editions": [
+        {
+          "sku": "TRION-ASCENSION-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "TRION-ASCENSION-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "TRION-ASCENSION-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "trion",
+      "title": "Trion",
+      "r2Prefix": "books/trion/",
+      "websitePage": "../books/trion/",
+      "coverStatus": "website-artwork",
+      "editions": [
+        {
+          "sku": "TRION-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "TRION-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "TRION-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "uncanny-valley",
+      "title": "Uncanny Valley",
+      "r2Prefix": "books/uncanny-valley/",
+      "websitePage": "../books/uncanny-valley/",
+      "coverStatus": "website-artwork",
+      "editions": [
+        {
+          "sku": "UNCANNY-VALLEY-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "UNCANNY-VALLEY-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "UNCANNY-VALLEY-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "war-of-the-worlds",
+      "title": "The War of the Worlds",
+      "r2Prefix": "books/war-of-the-worlds/",
+      "websitePage": "../books/war-of-the-worlds/",
+      "coverStatus": "website-artwork",
+      "editions": [
+        {
+          "sku": "WAR-OF-THE-WORLDS-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "WAR-OF-THE-WORLDS-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "WAR-OF-THE-WORLDS-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "what-is-happening-now-2027",
+      "title": "What Is Happening Now? 2027",
+      "r2Prefix": "books/what-is-happening-now-2027/",
+      "websitePage": null,
+      "coverStatus": "awaiting-artwork",
+      "editions": [
+        {
+          "sku": "WHAT-IS-HAPPENING-NOW-2027-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "WHAT-IS-HAPPENING-NOW-2027-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "WHAT-IS-HAPPENING-NOW-2027-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    },
+    {
+      "slug": "what-is-happening-now",
+      "title": "What Is Happening Now?",
+      "r2Prefix": "books/what-is-happening-now/",
+      "websitePage": "../books/what-is-happening-now/",
+      "coverStatus": "website-artwork",
+      "editions": [
+        {
+          "sku": "WHAT-IS-HAPPENING-NOW-EBOOK",
+          "type": "ebook",
+          "available": false
+        },
+        {
+          "sku": "WHAT-IS-HAPPENING-NOW-PN",
+          "type": "pn",
+          "available": false
+        },
+        {
+          "sku": "WHAT-IS-HAPPENING-NOW-CFX",
+          "type": "cfx",
+          "available": false
+        }
+      ]
+    }
+  ]
+}
