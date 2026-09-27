@@ -1,0 +1,26 @@
+name: Direct store tests
+on:
+  push:
+    branches: [feature/direct-audio-store]
+    paths:
+      - 'functions/api/store/**'
+      - 'functions/_lib/store.js'
+      - 'store/**'
+      - '.github/workflows/store-tests.yml'
+  pull_request:
+    paths:
+      - 'functions/api/store/**'
+      - 'functions/_lib/store.js'
+      - 'store/**'
+permissions:
+  contents: read
+jobs:
+  node-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run security and delivery tests
+        run: node --experimental-default-type=module --test store/tests/*.test.mjs
