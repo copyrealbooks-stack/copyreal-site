@@ -2,7 +2,7 @@
 
 Source: Copy Real Books Drive / All Book Covers: https://drive.google.com/drive/folders/1dzX1Enq5_maE3s3ruUvNZTDJpT9cA45Y
 
-Status: folder metadata rechecked after final user upload. These are *source files*, not finished newly branded exports. Do not infer that an audiobook has been completed just because cover art exists. Existing originals must be preserved. User confirms **Mondoloi** (with D) is the canonical title; website and old assets currently spell it `Mondoloi`. Do not conflate the title and filename migrations: preserve old asset filenames until replacement paths are updated and tested.
+Status: folder metadata rechecked after final user upload. These are *source files*, not finished newly branded exports. Do not infer that an audiobook has been completed just because cover art exists. Existing originals must be preserved. User confirms **Mondaloy** (with D) is the canonical title; website and old assets currently spell it `Mondaloy`. Do not conflate the title and filename migrations: preserve old asset filenames until replacement paths are updated and tested.
 
 ## Identifiable audio or edition artwork
 
@@ -45,7 +45,7 @@ Do not map unnamed files to The Martian Shadow or any other title without visual
 
 - Existing eBook art: `assets/covers/`, `assets/covers/catalogue/`.
 - Existing audiobook thumbnails: `assets/covers/audio/`.
-- The audiobook and books pages currently use `Mondoloi`. **Canonical work title: Mondoloi.** Keep legacy `monaloy` URLs as redirects or aliases when changing routes, and update metadata, search, heading, artwork titles and SKU display names together. Never break existing retailer links without checking.
+- The audiobook and books pages currently use `Mondaloy`. **Canonical work title: Mondaloy.** Keep legacy `monaloy` URLs as redirects or aliases when changing routes, and update metadata, search, heading, artwork titles and SKU display names together. Never break existing retailer links without checking.
 - Ash and Iron is a series comprising War of the Worlds, The Martian Shadow and The Manufactured Sky. The series's War of the Worlds is distinct from H. G. Wells's classic.
 
 ## Production and launch gates
