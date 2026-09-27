@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "currency": "USD",
+  "checkout": {
+    "stripe": { "enabled": false },
+    "paypal": { "enabled": false }
+  },
+  "defaults": {
+    "territories": { "mode": "unconfigured", "allow": [], "deny": [] },
+    "delivery": { "type": "protected-download", "target": null }
+  },
+  "products": {
+    "1984": {
+      "territories": { "mode": "restricted", "allow": [], "deny": ["US"] },
+      "editions": {
+        "ebook": { "enabled": false, "price": null, "stripeProduct": null, "paypalProduct": null, "deliveryTarget": null },
+        "pn": { "enabled": false, "price": null, "stripeProduct": null, "paypalProduct": null, "deliveryTarget": null },
+        "cfx": { "enabled": false, "price": null, "stripeProduct": null, "paypalProduct": null, "deliveryTarget": null }
+      }
+    }
+  }
+}
