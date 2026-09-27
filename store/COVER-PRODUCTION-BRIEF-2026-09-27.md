@@ -8,7 +8,7 @@ Date: 27 September 2026. Source: user-supplied All Book Covers folder and existi
 - Pure Narration: original artwork, COPY REAL AUDIO branding, a legible `PURE NARRATION` identifier and established gold microphone identity. No legacy AV mark.
 - CFX: coordinated artwork with COPY REAL CFX and `CINEMATIC EDITION` identifier; visually distinct from PN at thumbnail size. No old brand. CFX editions use sound design without added music.
 - Preserve approved art. Do not manufacture a corresponding edition merely because one edition's image exists.
-- Exact title/author/narrator text must be verified; **Mondaloy** is canonical, not `Mondaloy` or `Mondaloy`.
+- Exact title/author/narrator text must be verified; **Mondaloy** is the confirmed spelling. Older code and artwork may still use the legacy `monaloy` filename or path.
 
 ## Queue based on identifiable assets, not on assumed audio completion
 
