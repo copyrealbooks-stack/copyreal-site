@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Copy Real Store | Books and Audiobooks</title>
+  <meta name="description" content="Explore Copy Real books, Pure Narration audiobooks and Cinematic editions. Direct purchasing will be enabled after secure delivery is tested.">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <style>
+    .store-shell{max-width:1200px;margin:auto;padding:3rem 1.25rem 5rem}.store-head{display:flex;justify-content:space-between;gap:1.5rem;align-items:center;flex-wrap:wrap}.store-head h1{margin:.5rem 0}.store-controls{display:flex;gap:.75rem;flex-wrap:wrap;margin:2rem 0}.store-controls input,.store-controls select{font:inherit;padding:.8rem 1rem;min-width:220px;max-width:100%;background:#fff;color:#181818;border:1px solid #aaa;border-radius:6px}.store-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:1.5rem}.store-card{border:1px solid rgba(165,135,83,.55);border-radius:10px;overflow:hidden;background:#151515;color:#f4f0e9;display:flex;flex-direction:column}.store-card img{width:100%;aspect-ratio:2/3;object-fit:contain;background:#242424}.store-info{padding:1rem;display:flex;flex-direction:column;flex:1;gap:.55rem}.store-info h2{font-size:1.12rem;line-height:1.35;margin:0}.store-info p{margin:0;font-size:.9rem}.store-tags{display:flex;gap:.4rem;flex-wrap:wrap}.store-tag{font-size:.73rem;border:1px solid #c0a16c;border-radius:20px;padding:.2rem .48rem}.store-links{margin-top:auto;padding-top:.8rem}.store-links a{display:inline-block;padding:.55rem .8rem;border:1px solid #d2b579;border-radius:6px;color:#f2d99f}.store-notice{border-left:4px solid #b69a60;padding:1rem 1.2rem;background:#292620;margin:1.5rem 0}.store-status{min-height:1.5em}.store-card[hidden]{display:none}.store-empty{padding:2rem;text-align:center}
+  </style>
+</head>
+<body>
+  <header class="site-header"><div class="container nav"><a class="brand" href="../"><img alt="Copy Real" src="../assets/copyreal-logo.png"><span class="brand-word">COPY REAL</span></a><nav class="nav-links"><a href="../books/">Books</a><a href="../audio/">Audio</a><a href="../series/">Series</a><a href="../authors/">Authors</a><a href="../about/">About</a></nav></div></header>
+  <main class="store-shell">
+    <div class="store-head"><div><div class="kicker gold">Copy Real</div><h1>Books &amp; Audiobooks</h1><p>Browse the catalogue and explore available editions.</p></div><a href="../audio/">Explore Copy Real Audio →</a></div>
+    <div class="store-notice" role="note"><strong>Store preview:</strong> Direct checkout and private downloads are not yet active. Edition availability, including territorial rights, must be confirmed before a product can be sold. No files are publicly accessible through this page.</div>
+    <div class="store-controls"><label for="store-search">Search catalogue <input id="store-search" type="search" placeholder="Title or author" autocomplete="off"></label><label for="store-filter">Show <select id="store-filter"><option value="all">All books</option><option value="audio">Titles with audio pages</option><option value="classic">Classics</option><option value="speculative">Speculative fiction</option><option value="horror">Horror</option><option value="nonfiction">Non-fiction</option><option value="performance">Performance</option><option value="children">Children</option></select></label></div>
+    <p id="store-status" class="store-status" role="status" aria-live="polite">Loading catalogue…</p>
+    <div id="store-grid" class="store-grid" aria-label="Store catalogue"></div>
+  </main>
+  <footer class="footer"><div class="container"><p>© 2026 Copy Real. Book and edition availability varies by territory. Direct purchasing is not yet enabled.</p></div></footer>
+  <script type="module">
+    const booksURL = new URL('../books/', location.href);
+    const audioURL = new URL('../audio/', location.href);
+    const grid = document.querySelector('#store-grid');
+    const status = document.querySelector('#store-status');
+    const search = document.querySelector('#store-search');
+    const filter = document.querySelector('#store-filter');
+    const escapeHTML = value => String(value || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    // Source catalogue pages remain the authority for titles, covers and authors.
+    // Do not infer purchasable editions merely because a title has an audio page.
+    async function readCatalogue(url) {
+      const response = await fetch(url, {cache:'no-cache'});
+      if (!response.ok) throw new Error('Catalogue fetch failed: ' + response.status);
+      return new DOMParser().parseFromString(await response.text(), 'text/html');
+    }
+    function safeSiteURL(relative, source) {
+      const parsed = new URL(relative, source);
+      if (parsed.origin !== location.origin) return null;
+      return parsed.pathname + parsed.search + parsed.hash;
+    }
+    function render(entries) {
+      grid.innerHTML = entries.map(book => `<article class="store-card" data-search="${escapeHTML((book.title + ' ' + book.author).toLowerCase())}" data-category="${escapeHTML(book.category)}" data-audio="${book.audio ? 'yes' : 'no'}"><img loading="lazy" src="${escapeHTML(book.cover)}" alt="${escapeHTML(book.title)} cover"><div class="store-info"><h2>${escapeHTML(book.title)}</h2><p>${escapeHTML(book.author)}</p><div class="store-tags"><span class="store-tag">Book</span>${book.audio ? '<span class="store-tag">Audiobook page</span>' : ''}</div><div class="store-links"><a href="${escapeHTML(book.url)}">Book details</a>${book.audio ? ` <a href="${escapeHTML(book.audio)}">Audio editions</a>` : ''}</div></div></article>`).join('');
+      update();
+    }
+    function update() {
+      const q = search.value.trim().toLowerCase();
+      const type = filter.value;
+      let shown = 0;
+      for (const card of grid.querySelectorAll('.store-card')) {
+        const matches = card.dataset.search.includes(q) && (type === 'all' || (type === 'audio' ? card.dataset.audio === 'yes' : card.dataset.category.includes(type)));
+        card.hidden = !matches;
+        if (matches) shown++;
+      }
+      status.textContent = `${shown} title${shown === 1 ? '' : 's'} shown. Checkout is not yet active.`;
+    }
+    search.addEventListener('input', update);
+    filter.addEventListener('change', update);
+    try {
+      const [booksDoc, audioDoc] = await Promise.all([readCatalogue(booksURL), readCatalogue(audioURL)]);
+      const audio = new Map();
+      for (const link of audioDoc.querySelectorAll('.audio-grid a.audio-card[href]')) {
+        const title = link.querySelector('h3')?.textContent?.trim();
+        if (title) audio.set(title.toLowerCase(), safeSiteURL(link.getAttribute('href'), audioURL));
+      }
+      const entries = [...booksDoc.querySelectorAll('.catalogue-grid a.book-card[href]')].map(link => {
+        const title = link.querySelector('h3')?.textContent?.trim() || '';
+        const img = link.querySelector('img');
+        return {title, author:link.querySelector('.author')?.textContent?.trim() || '', category:(link.dataset.category || '').toLowerCase(), url:safeSiteURL(link.getAttribute('href'), booksURL), cover:img ? safeSiteURL(img.getAttribute('src'), booksURL) : '', audio:audio.get(title.toLowerCase()) || null};
+      }).filter(book => book.title && book.url && book.cover);
+      render(entries);
+    } catch (error) {
+      status.textContent = 'The catalogue could not be loaded. Please browse our books or audio pages directly.';
+      grid.innerHTML = '<p class="store-empty"><a href="../books/">Browse books</a> · <a href="../audio/">Browse audio</a></p>';
+      console.error('Store preview:', error);
+    }
+  </script>
+</body>
+</html>
