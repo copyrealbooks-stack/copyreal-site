@@ -1,0 +1,26 @@
+{
+  "CR-TEST-EBOOK": {
+    "enabled": false,
+    "name": "Copy Real Test EBook",
+    "title": "Copy Real Test EBook",
+    "edition": "eBook",
+    "amount": 10000,
+    "currency": "thb",
+    "r2Key": "store-test/test-ebook.txt",
+    "filename": "copy-real-test-ebook.txt",
+    "contentType": "text/plain; charset=utf-8",
+    "territories": ["TH"]
+  },
+  "TM-PN": {
+    "enabled": false,
+    "name": "The Time Machine — Pure Narration",
+    "title": "The Time Machine",
+    "edition": "Pure Narration",
+    "amount": 0,
+    "currency": "thb",
+    "r2Key": "",
+    "filename": "the-time-machine-pn.zip",
+    "contentType": "application/zip",
+    "territories": []
+  }
+}
