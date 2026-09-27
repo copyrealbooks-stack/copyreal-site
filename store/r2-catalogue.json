@@ -1,6 +1,6 @@
 {
   "generatedFrom": "2026-09-27 Copy Real R2 inventory CSV",
-  "note": "Metadata only. Folder existence does not indicate an uploaded file, cover, available edition or distribution right. R2 prefix monaloy is retained; display title Mondoloi is corrected.",
+  "note": "Display title Mondaloy is canonical. Existing R2 prefix monaloy and legacy website paths remain unchanged to preserve links; storefront SKU display name corrected.",
   "books": [
     {
       "slug": "1984",
@@ -676,23 +676,23 @@
     },
     {
       "slug": "monaloy",
-      "title": "Mondoloi",
+      "title": "Mondaloy",
       "r2Prefix": "books/monaloy/",
       "websitePage": "../books/monaloy/",
       "coverStatus": "website-artwork",
       "editions": [
         {
-          "sku": "MONDOLOI-EBOOK",
+          "sku": "MONDALOY-EBOOK",
           "type": "ebook",
           "available": false
         },
         {
-          "sku": "MONDOLOI-PN",
+          "sku": "MONDALOY-PN",
           "type": "pn",
           "available": false
         },
         {
-          "sku": "MONDOLOI-CFX",
+          "sku": "MONDALOY-CFX",
           "type": "cfx",
           "available": false
         }
