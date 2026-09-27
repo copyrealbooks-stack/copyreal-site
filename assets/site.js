@@ -4,13 +4,24 @@ document.querySelectorAll('[data-filter]').forEach(btn=>btn.addEventListener('cl
 const catalogueSearch=document.querySelector('[data-catalogue-search]');
 if(catalogueSearch){catalogueSearch.addEventListener('input',()=>{const q=catalogueSearch.value.trim().toLowerCase();document.querySelectorAll('[data-search]').forEach(card=>{card.style.display=(!q||card.dataset.search.toLowerCase().includes(q))?'block':'none'})})}
 
-/* Retail links -----------------------------------------------------------
-   Book catalogue cards continue to open the Copy Real title page first.
-   On each individual book page we add a purchase button for Amazon UK and
-   make the displayed cover itself open the same purchase destination.
-   Where a verified KDP ASIN is known we link directly to the product page;
-   otherwise an exact KDP-style title + author Amazon Books search is used so
-   no unverified ASIN is ever guessed. No affiliate tracking is applied. */
+/* Copy Real direct store -------------------------------------------------
+   Load the shared purchase component on catalogue/title pages. Catalogue
+   cards remain Copy Real links and are rewritten by store.js to land at the
+   title's #buy-direct section. */
+(function loadDirectStore(){
+  const path=window.location.pathname.replace(/\/+$/,'/');
+  if(path!=='/books/' && !/^\/books\/[^/]+\/$/.test(path)) return;
+  const script=document.createElement('script');
+  script.src='/assets/store.js';
+  script.defer=true;
+  document.body.appendChild(script);
+})();
+
+/* Amazon remains an alternative retailer -------------------------------
+   On individual book pages add a separate Amazon UK button. The cover is
+   deliberately NOT linked to Amazon: Copy Real remains the primary title and
+   purchase destination. Verified ASINs are used where known; otherwise an
+   exact title/author Amazon Books search is used. No affiliate tracking. */
 (function addAmazonPurchaseLink(){
   const path=window.location.pathname.replace(/\/+$/,'/');
   if(!/^\/books\/[^/]+\/$/.test(path)) return;
@@ -77,31 +88,19 @@ if(catalogueSearch){catalogueSearch.addEventListener('input',()=>{const q=catalo
 
   if(!actions.querySelector('[data-amazon-buy]')){
     const buy=document.createElement('a');
-    buy.className='btn primary';
+    buy.className='btn';
     buy.href=amazonUrl;
     buy.target='_blank';
     buy.rel='noopener noreferrer';
     buy.dataset.amazonBuy='';
     buy.textContent='Buy on Amazon';
     buy.setAttribute('aria-label','Buy '+title+' on Amazon UK');
-    actions.prepend(buy);
+    actions.appendChild(buy);
 
     const note=document.createElement('div');
     note.className='fine';
     note.style.marginTop='10px';
-    note.textContent='Amazon availability and formats may vary by country.';
+    note.textContent='Amazon is an alternative retailer. Availability and formats may vary by country.';
     actions.insertAdjacentElement('afterend',note);
-  }
-
-  const cover=document.querySelector('main .detail-cover');
-  if(cover && !cover.closest('[data-amazon-cover]')){
-    const coverLink=document.createElement('a');
-    coverLink.href=amazonUrl;
-    coverLink.target='_blank';
-    coverLink.rel='noopener noreferrer';
-    coverLink.dataset.amazonCover='';
-    coverLink.title='Buy '+title+' on Amazon UK';
-    cover.parentNode.insertBefore(coverLink,cover);
-    coverLink.appendChild(cover);
   }
 })();
