@@ -25,3 +25,7 @@ Cloudflare Pages Functions at `/api/store/*` implement test-only Stripe Checkout
 - Test failure/retry, asynchronous webhook, dispute/refund revocation, currency/territory controls, download interruptions, preview vs production variables, and real merchant account capability before launch.
 
 **Important:** The live Copy Real website stays unchanged. The Stripe dashboard 'Ready to go' and account 'Active' screenshots did not prove that a live transaction has completed; do not claim the merchant integration is operational until tested.
+
+## Preview configuration checkpoint — 2026-09-28
+
+The Copy Real development sandbox and its Stripe webhook have been created. Cloudflare Pages preview settings were populated with encrypted `STRIPE_WEBHOOK_SECRET` and `STRIPE_SECRET_KEY`, `STORE_MODE=test`, `STORE_PRODUCTS_JSON` for the single synthetic `CR-TEST-EBOOK`, and `STORE_ENABLED=true`. The isolated `copy-real-store-dev` D1 and private `copyrealdownloads` R2 bindings are preview only; a harmless `store-test/test-ebook.txt` object was uploaded by the user. Never enable live checkout by this configuration. Rebuild the feature-branch preview after changes to environment variables and confirm `/api/store/catalogue` before attempting a sandbox test purchase.
