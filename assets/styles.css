@@ -66,3 +66,7 @@
 .audio-page .notice{border-left-color:var(--cra-gold);background:rgba(212,175,55,.055)}
 @media(max-width:720px){.audio-hero{padding-top:20px}.audio-hero .container{width:min(100% - 18px,1380px)}.audio-hero-copy{margin-top:24px;padding-left:10px;padding-right:10px}.audio-brand-banner{min-height:230px;object-fit:cover;object-position:center}.audio-brand-logo-home{width:175px}.audio-brand-note{padding:14px}.audio-brand-note img{width:70px;height:50px}}
 @media(max-width:430px){.audio-brand-banner{min-height:205px}.audio-hero-copy h1{font-size:2.5rem}.legacy-current-brand img{width:115px}.audio-brand-mini span{font-size:.68rem}.audio-brand-mini img{width:66px;height:47px}}
+
+/* Room for the Last Road link in the shared navigation. */
+.nav-links{gap:18px}
+@media(max-width:1120px){.nav-links{display:none;position:absolute;top:88px;left:0;right:0;background:#080909;padding:24px 20px;border-bottom:1px solid #27241f;flex-direction:column;align-items:flex-start}.nav-links.open{display:flex}.menu-btn{display:block}}
