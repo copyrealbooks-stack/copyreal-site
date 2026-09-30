@@ -113,7 +113,7 @@ if(catalogueSearch){catalogueSearch.addEventListener('input',()=>{const q=catalo
   const link=document.createElement('a');
   link.href='/last-road/';
   link.textContent='Last Road';
-  if(location.pathname.replace(/\\/+$/,'/')==='/last-road/'){
+  if(location.pathname.startsWith('/last-road/')){
     link.classList.add('active');
     link.setAttribute('aria-current','page');
   }
