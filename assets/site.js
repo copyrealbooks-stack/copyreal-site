@@ -105,3 +105,19 @@ if(catalogueSearch){catalogueSearch.addEventListener('input',()=>{const q=catalo
     coverLink.appendChild(cover);
   }
 })();
+
+/* Keep Last Road visible in the shared navigation on every Copy Real page. */
+(function addLastRoadNav(){
+  const nav=document.querySelector('.site-header .nav-links');
+  if(!nav||nav.querySelector('a[href="/last-road/"]')||nav.querySelector('a[href="./"]')) return;
+  const link=document.createElement('a');
+  link.href='/last-road/';
+  link.textContent='Last Road';
+  if(location.pathname.replace(/\\/+$/,'/')==='/last-road/'){
+    link.classList.add('active');
+    link.setAttribute('aria-current','page');
+  }
+  const series=nav.querySelector('a[href$="series/"]');
+  if(series) series.insertAdjacentElement('afterend',link);
+  else nav.append(link);
+})();
