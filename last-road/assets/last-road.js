@@ -6,7 +6,14 @@
   document.querySelectorAll('[data-link-slot]').forEach(slot => {
     const number = Number(slot.dataset.linkSlot);
     const url = links.episodes?.[number];
-    if (!valid(url)) return;
+    const card = slot.closest('.episode');
+    if (!valid(url)) {
+      card?.classList.add('is-coming-soon');
+      card?.setAttribute('tabindex', '0');
+      card?.setAttribute('aria-label', `${card.querySelector('h3')?.textContent || `Episode ${number}`} — Coming soon`);
+      slot.replaceChildren(Object.assign(document.createElement('span'), { className: 'release-note', textContent: 'Coming soon' }));
+      return;
+    }
     const a = document.createElement('a');
     a.className = 'watch'; a.href = url; a.target = '_blank'; a.rel = 'noopener noreferrer';
     a.textContent = `Watch episode ${number} on YouTube`;
