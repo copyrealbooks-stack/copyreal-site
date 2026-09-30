@@ -26,3 +26,17 @@ body{background:var(--paper);color:var(--ink)}
 footer{background:#101413}
 @media(max-width:800px){.hero-scrim{background:linear-gradient(90deg,rgba(10,14,12,.96),rgba(10,14,12,.62)),linear-gradient(0deg,rgba(10,14,12,.8),transparent 60%)}}
 @media(prefers-reduced-motion:reduce){.episode-art::after{transition:none}}
+
+/* Match the Copy Real site header while retaining the Last Road page palette. */
+.site-header{position:sticky;top:0;z-index:50;background:rgba(5,6,6,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(199,154,75,.14)}
+.site-header .container{width:min(1240px,calc(100% - 40px));margin:auto}
+.site-header .nav{height:88px;min-height:88px;display:flex;align-items:center;gap:36px;justify-content:initial}
+.site-header .brand{display:flex;align-items:center;gap:11px;margin-right:auto;text-decoration:none}
+.site-header .brand img{width:96px;height:64px;object-fit:contain;display:block}
+.site-header .brand-word{font-size:.72rem;letter-spacing:.32em;white-space:nowrap}
+.site-header .nav-links{display:flex;align-items:center;gap:18px}
+.site-header .nav-links a{text-decoration:none;font-size:.65rem;text-transform:uppercase;letter-spacing:.18em;white-space:nowrap}
+.site-header .nav-links a:hover,.site-header .nav-links a.active{color:#e1bb71}
+.site-header .menu-btn{display:none;background:none;border:1px solid #39362f;color:#f2eee5;padding:9px 12px;cursor:pointer}
+@media(max-width:1120px){.site-header .nav-links{display:none;position:absolute;top:88px;left:0;right:0;background:#080909;padding:24px 20px;border-bottom:1px solid #27241f;flex-direction:column;align-items:flex-start}.site-header .nav-links.open{display:flex}.site-header .menu-btn{display:block}}
+@media(max-width:720px){.site-header .container{width:calc(100% - 28px)}}
