@@ -70,3 +70,9 @@
 /* Room for the Last Road link in the shared navigation. */
 .nav-links{gap:18px}
 @media(max-width:1120px){.nav-links{display:none;position:absolute;top:88px;left:0;right:0;background:#080909;padding:24px 20px;border-bottom:1px solid #27241f;flex-direction:column;align-items:flex-start}.nav-links.open{display:flex}.menu-btn{display:block}}
+
+/* Copy Real Audio catalogue and verified retail choices. */
+.audio-card-main{display:block;color:inherit;text-decoration:none}.audio-card-main:hover h3{color:var(--cra-gold,#d4af37)}
+.retail-choices{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 2px}.retail-choices a{display:inline-block;border:1px solid rgba(212,175,55,.55);border-radius:4px;padding:9px 12px;color:#e9d18a;background:#161616;text-decoration:none;font-size:.82rem;font-weight:700}.retail-choices a:hover,.retail-choices a:focus-visible{background:#d4af37;color:#111}
+.retail-explainer{font-size:.87rem;color:#bdb7ad;margin-top:22px;max-width:850px}.brand-placeholder{background:#111}.brand-placeholder img{object-fit:contain!important;padding:14%}
+.retailer-panel .retail-choices{align-content:center}
