@@ -7,13 +7,21 @@
     const number = Number(slot.dataset.linkSlot);
     const url = links.episodes?.[number];
     const card = slot.closest('.episode');
+    const art = card.querySelector('.episode-art');
+    const title = card.querySelector('h3').textContent;
     if (!valid(url)) {
-      card?.classList.add('is-coming-soon');
-      card?.setAttribute('tabindex', '0');
-      card?.setAttribute('aria-label', `${card.querySelector('h3')?.textContent || `Episode ${number}`} — Coming soon`);
+      art.setAttribute('aria-label', `${title} — Coming soon`);
+      let noticeTimer;
+      art.addEventListener('click', () => {
+        art.classList.add('is-revealed');
+        clearTimeout(noticeTimer);
+        noticeTimer = setTimeout(() => art.classList.remove('is-revealed'), 2400);
+      });
       slot.replaceChildren(Object.assign(document.createElement('span'), { className: 'release-note', textContent: 'Coming soon' }));
       return;
     }
+    art.setAttribute('aria-label', `Watch ${title} on YouTube`);
+    art.addEventListener('click', () => window.open(url, '_blank', 'noopener,noreferrer'));
     const a = document.createElement('a');
     a.className = 'watch'; a.href = url; a.target = '_blank'; a.rel = 'noopener noreferrer';
     a.textContent = `Watch episode ${number} on YouTube`;
