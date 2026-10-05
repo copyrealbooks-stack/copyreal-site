@@ -33,7 +33,7 @@ if(catalogueSearch){catalogueSearch.addEventListener('input',()=>{const q=catalo
     'Uncanny Valley':'Uncanny Valley',
     'Trion: Ascension':'Trion: Ascension',
     'Nice Knowing You':'Nice Knowing You',
-    'Monaloy':'Monaloy',
+    'Mondaloy':'Mondaloy',
     '[REDACTED] — Volume II':'[REDACTED] Volume II: A Compendium of Contemporary Folklore and Digital Myth',
     '[REDACTED]':'[REDACTED]: The Backrooms and Contemporary Digital Myth',
     'Nineteen Eighty-Four':'1984: The Illustrated 2025 Edition',
@@ -120,4 +120,35 @@ if(catalogueSearch){catalogueSearch.addEventListener('input',()=>{const q=catalo
   const series=nav.querySelector('a[href$="series/"]');
   if(series) series.insertAdjacentElement('afterend',link);
   else nav.append(link);
+})();
+
+/* The Boy They Wouldn't Name — replace the temporary Copy Real Audio
+   placeholder with the finished rebranded cover on catalogue and detail pages. */
+(function refreshBoyAudiobookCover(){
+  const coverUrl='/assets/covers/audio/copyreal-boy-they-wouldnt-name.jpg?v=20261005';
+  document.querySelectorAll('a[href$="the-boy-they-wouldnt-name/"]').forEach(link=>{
+    const card=link.closest('.audio-product-card');
+    const img=link.querySelector('img');
+    if(img){
+      img.src=coverUrl;
+      img.alt="The Boy They Wouldn't Name audiobook cover";
+    }
+    const frame=link.querySelector('.cover-frame');
+    if(frame) frame.classList.remove('brand-placeholder');
+    const tag=card?.querySelector('.tag');
+    if(tag&&/cover refresh pending/i.test(tag.textContent)) tag.textContent='Pure Narration';
+  });
+
+  const path=window.location.pathname.replace(/\/+$/,'/');
+  if(path==='/audio/the-boy-they-wouldnt-name/'){
+    const img=document.querySelector('.detail-cover');
+    if(img){
+      img.src=coverUrl;
+      img.alt="The Boy They Wouldn't Name audiobook cover";
+    }
+    const copy=document.querySelector('.detail-copy');
+    if(copy&&/cover is being refreshed/i.test(copy.textContent)){
+      copy.textContent='The true story of Crimea Butler-Downton, presented in his own voice as an unabridged Pure Narration edition from Copy Real Audio.';
+    }
+  }
 })();
