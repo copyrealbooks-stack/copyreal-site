@@ -1,0 +1,33 @@
+{
+  "_comment": "Private Cloudflare variable example only. Keep this out of browser code. Approved GBP prices are fixed in store/catalogue-data.js.",
+  "FRANKENSTEIN-EBOOK": {
+    "enabled": false,
+    "r2Key": "SET_PRIVATE_R2_OBJECT_KEY_IN_CLOUDFLARE",
+    "filename": "frankenstein-ebook.zip",
+    "contentType": "application/zip"
+  },
+  "FRANKENSTEIN-PN": {
+    "enabled": false,
+    "r2Key": "SET_PRIVATE_R2_OBJECT_KEY_IN_CLOUDFLARE",
+    "filename": "frankenstein-pure-narration.zip",
+    "contentType": "application/zip"
+  },
+  "FRANKENSTEIN-CFX": {
+    "enabled": false,
+    "r2Key": "SET_PRIVATE_R2_OBJECT_KEY_IN_CLOUDFLARE",
+    "filename": "frankenstein-cinematic-edition.zip",
+    "contentType": "application/zip"
+  },
+  "FRANKENSTEIN-EBOOK-PN": {
+    "enabled": false,
+    "r2Key": "SET_PRIVATE_R2_OBJECT_KEY_IN_CLOUDFLARE",
+    "filename": "frankenstein-ebook-plus-pure-narration.zip",
+    "contentType": "application/zip"
+  },
+  "FRANKENSTEIN-EBOOK-CFX": {
+    "enabled": false,
+    "r2Key": "SET_PRIVATE_R2_OBJECT_KEY_IN_CLOUDFLARE",
+    "filename": "frankenstein-ebook-plus-cinematic-edition.zip",
+    "contentType": "application/zip"
+  }
+}
