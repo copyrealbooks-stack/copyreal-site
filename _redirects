@@ -1,3 +1,5 @@
 /audiobooks/* /audio/ 301
 /audioverse/catalogue/* /audio/ 301
 /audioverse/books/* /audio/ 301
+/store/books /store/ 301
+/store/books/ /store/ 301

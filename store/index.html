@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Copy Real Direct Store</title><meta name="description" content="Buy Copy Real eBooks, Pure Narration and Cinematic audiobook editions directly from the publisher."><meta name="robots" content="noindex,nofollow"><link rel="icon" href="../assets/favicon.png"><link rel="stylesheet" href="../assets/styles.css"><link rel="stylesheet" href="../assets/store.css"></head>
+<body><header class="site-header"><div class="container nav"><a class="brand" href="../"><img alt="Copy Real" src="../assets/copyreal-logo.png"><span class="brand-word">COPY REAL</span></a><button aria-expanded="false" aria-label="Open navigation" class="menu-btn">MENU</button><nav class="nav-links"><a href="../books/">Books</a><a href="../audio/">Audio</a><a class="active" aria-current="page" data-direct-store-nav href="./">Store</a><a href="../series/">Series</a><a href="../authors/">Authors</a><a href="../public-domain/">Classics</a><a href="../coming-soon/">Coming Soon</a><a href="../about/">About</a><a href="../contact/">Contact</a></nav></div></header>
+<main class="store-shell"><section class="store-hero"><div><div class="kicker gold">Copy Real Direct</div><h1>BOOKS &amp; AUDIOBOOKS</h1><p>Choose the edition you actually want: eBook, Pure Narration, Cinematic Edition, or an eBook + audio bundle. Pure Narration and Cinematic editions remain separate alternatives; there is no PN + CFX bundle.</p></div><div class="store-price-note"><strong>Prices are in GBP.</strong><br>Classic/public-domain editions: eBook £1.99 · PN £4.99 · CFX £6.99 · eBook+PN £5.99 · eBook+CFX £7.99.<br><br>Copy Real original/owned works: eBook £3.99 · PN £6.99 · CFX £8.99 · eBook+PN £7.99 · eBook+CFX £9.99.</div></section>
+<div id="store-banner" class="store-banner" role="status" aria-live="polite">Checking secure checkout availability…</div>
+<div class="store-controls"><label>Search <input id="store-search" type="search" placeholder="Title or author" autocomplete="off"></label><label>Show <select id="store-filter"><option value="all">All titles</option><option value="pilot">Pilot product</option><option value="classic">Classics</option><option value="owned">Copy Real originals</option></select></label></div>
+<p id="store-status" class="store-status"></p><div id="store-grid" class="store-grid" aria-label="Copy Real direct store catalogue"></div></main>
+<footer class="footer"><div class="container"><div class="fine">© 2026 Copy Real. Availability and rights are edition- and territory-specific. Payment details are processed by Stripe and are not stored by Copy Real.</div></div></footer>
+<script src="../assets/site.js"></script><script src="../assets/store.js"></script>
+<script type="module">
+import {TITLES,productsForTitle} from "./catalogue-data.js";
+const grid=document.querySelector("#store-grid"),status=document.querySelector("#store-status"),banner=document.querySelector("#store-banner"),search=document.querySelector("#store-search"),filter=document.querySelector("#store-filter");
+const money=amount=>new Intl.NumberFormat("en-GB",{style:"currency",currency:"GBP"}).format(amount/100);
+const esc=value=>String(value??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const safeSiteURL=(relative,source)=>{try{const parsed=new URL(relative,source);return parsed.origin===location.origin?parsed.pathname+parsed.search+parsed.hash:null}catch{return null}};
+async function doc(url){const response=await fetch(url,{cache:"no-cache"});if(!response.ok)throw Error("Catalogue unavailable");return new DOMParser().parseFromString(await response.text(),"text/html")}
+let enabled=new Map(),bookData=new Map();
+try{
+  const [booksDoc,api]=await Promise.all([doc(new URL("../books/",location.href)),fetch("/api/store/catalogue",{cache:"no-store"}).then(r=>r.json()).catch(()=>({enabled:false,products:[]}))]);
+  for(const link of booksDoc.querySelectorAll(".catalogue-grid a.book-card[href]")){
+    const href=safeSiteURL(link.getAttribute("href"),new URL("../books/",location.href));if(!href)continue;
+    const slug=href.split("/").filter(Boolean).at(-1),img=link.querySelector("img");
+    bookData.set(slug,{author:link.querySelector(".author")?.textContent?.trim()||"",cover:img?safeSiteURL(img.getAttribute("src"),new URL("../books/",location.href)):null,url:href});
+  }
+  if(api.enabled){enabled=new Map((api.products||[]).map(p=>[p.sku,p]));banner.classList.add("ok");banner.textContent="Secure checkout is enabled for the editions marked Buy now. Other catalogue slots remain unavailable until their private delivery files and rights are verified."}
+  else banner.textContent="Preview catalogue: secure checkout is not enabled on this deployment. Prices and SKU structure are ready; purchase buttons stay locked until private Cloudflare/Stripe configuration is completed.";
+}catch(error){banner.textContent="The catalogue is available, but live site artwork could not be loaded in this preview."}
+function render(){
+  const q=search.value.trim().toLowerCase(),kind=filter.value;let shown=0;
+  grid.innerHTML=TITLES.map(title=>{
+    const meta=bookData.get(title.slug)||{},products=productsForTitle(title.slug),matches=(!q||(title.title+" "+(meta.author||"")).toLowerCase().includes(q))&&(kind==="all"||kind===title.pricingClass||(kind==="pilot"&&title.pilot));
+    if(matches)shown++;
+    const editions=products.map(p=>{const live=enabled.get(p.sku);return '<div class="store-edition"><div><strong>'+esc(p.edition)+'</strong><small>'+esc(p.description)+'</small></div><div class="store-action"><span class="store-price">'+money(p.amount)+'</span><button class="store-buy" type="button" data-sku="'+esc(p.sku)+'" '+(live?'':'disabled')+'>'+(live?'Buy now':'Not enabled')+'</button></div></div>'}).join("");
+    const rights=title.territoryMode==="restricted"?"Territory-specific: checkout stays disabled until an approved country allow-list is configured.":"Availability is edition-specific.";
+    return '<article class="store-card" id="title-'+esc(title.slug)+'" data-search="'+esc((title.title+" "+(meta.author||"")).toLowerCase())+'" data-kind="'+esc(title.pricingClass)+'" data-pilot="'+(title.pilot?'yes':'no')+'" '+(matches?'':'hidden')+'><div class="store-card-head">'+(meta.cover?'<a href="'+esc(meta.url||"#")+'"><img loading="lazy" src="'+esc(meta.cover)+'" alt="'+esc(title.title)+' cover"></a>':'<div class="store-cover-pending">Cover pending</div>')+'<div><div class="kicker gold">'+(title.pilot?'Pilot · ':'')+(title.pricingClass==="classic"?'Classic':'Copy Real original')+'</div><h2>'+esc(title.title)+'</h2><div class="author">'+esc(meta.author||"Catalogue record")+'</div><div class="rights">'+esc(rights)+'</div></div></div><div class="store-editions">'+editions+'</div></article>';
+  }).join("");
+  status.textContent=shown+" title"+(shown===1?"":"s")+" shown · "+(enabled.size?enabled.size+" edition SKU"+(enabled.size===1?"":"s")+" currently enabled for secure checkout.":"checkout locked in this preview.");
+}
+grid.addEventListener("click",async event=>{const button=event.target.closest("button[data-sku]:not(:disabled)");if(!button)return;button.disabled=true;const old=button.textContent;button.textContent="Opening checkout…";try{const response=await fetch("/api/store/checkout",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({sku:button.dataset.sku})});const data=await response.json();if(!response.ok||!data.checkoutUrl)throw Error(data.error||"Unable to start checkout");location.assign(data.checkoutUrl)}catch(error){alert(error.message);button.disabled=false;button.textContent=old}});
+search.addEventListener("input",render);filter.addEventListener("change",render);
+const requested=new URLSearchParams(location.search).get("title");if(requested&&TITLES.some(t=>t.slug===requested)){search.value=TITLES.find(t=>t.slug===requested).title}
+render();if(requested)requestAnimationFrame(()=>document.querySelector("#title-"+CSS.escape(requested))?.scrollIntoView({block:"start"}));
+</script></body></html>
