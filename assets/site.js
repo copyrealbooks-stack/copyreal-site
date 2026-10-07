@@ -22,7 +22,8 @@ if(catalogueSearch){catalogueSearch.addEventListener('input',()=>{const q=catalo
 
   const verifiedAmazon={
     'Project 2025':'https://www.amazon.co.uk/dp/B0F6VLJBNC',
-    'Project 2025: For The Balanced Individual':'https://www.amazon.co.uk/dp/B0F6VLJBNC'
+    'Project 2025: For The Balanced Individual':'https://www.amazon.co.uk/dp/B0F6VLJBNC',
+    "The King's Road":'https://www.amazon.co.uk/dp/B0HHZGDBWQ'
   };
 
   const kdpSearchTitles={
@@ -149,6 +150,39 @@ if(catalogueSearch){catalogueSearch.addEventListener('input',()=>{const q=catalo
     const copy=document.querySelector('.detail-copy');
     if(copy&&/cover is being refreshed/i.test(copy.textContent)){
       copy.textContent='The true story of Crimea Butler-Downton, presented in his own voice as an unabridged Pure Narration edition from Copy Real Audio.';
+    }
+  }
+})();
+
+/* The King's Road — released September 2026. Keep the live catalogue and
+   author index aligned with the current KDP release while the original
+   rectangular cover master is archived separately. */
+(function addKingsRoadRelease(){
+  const coverUrl='https://m.media-amazon.com/images/I/71fdQnnoIBL.jpg';
+  const path=window.location.pathname.replace(/\/+$/,'/');
+
+  if(path==='/books/'){
+    const grid=document.querySelector('.catalogue-grid');
+    if(grid&&!grid.querySelector('a[href="kings-road/"]')){
+      const card=document.createElement('a');
+      card.className='book-card';
+      card.dataset.category='fiction historical military';
+      card.href='kings-road/';
+      card.innerHTML='<div class="cover-frame portrait"><img alt="The King\'s Road cover" loading="lazy" src="'+coverUrl+'"/></div><h3>The King\'s Road</h3><div class="author">William J. Dyson</div><div class="tag">Historical fiction / English Civil War</div>';
+      grid.prepend(card);
+    }
+    const count=document.querySelector('.catalogue-count strong');
+    if(count&&Number(count.textContent.trim())<42) count.textContent='42';
+  }
+
+  if(path==='/authors/'){
+    const list=document.querySelector('.author-list');
+    if(list&&![...list.querySelectorAll('h2')].some(h=>h.textContent.trim()==='William J. Dyson')){
+      const panel=document.createElement('div');
+      panel.className='author-panel';
+      panel.innerHTML='<div><div class="kicker gold">Historical fiction</div><h2>William J. Dyson</h2><p>Author of <em>The King\'s Road</em>, a grounded English Civil War novel shaped by decades of research and re-enactment experience.</p><a class="text-link" href="../books/kings-road/">View title →</a></div><div class="mini-covers"><img alt="The King\'s Road" src="'+coverUrl+'"/></div>';
+      const heritage=[...list.querySelectorAll('.author-panel')].find(p=>p.querySelector('h2')?.textContent.trim()==='Heritage Authors');
+      if(heritage) list.insertBefore(panel,heritage); else list.appendChild(panel);
     }
   }
 })();
