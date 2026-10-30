@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "include": [
+    "/",
+    "/index.html",
+    "/2026",
+    "/2026/*",
+    "/2027",
+    "/2027/*",
+    "/about",
+    "/about/*",
+    "/research",
+    "/research/*",
+    "/assets/almanac.css",
+    "/assets/almanac.js",
+    "/almanac",
+    "/almanac/*",
+    "/books/*",
+    "/audio/*",
+    "/series/*",
+    "/authors/*",
+    "/public-domain/*",
+    "/coming-soon/*",
+    "/contact/*"
+  ],
+  "exclude": []
+}
