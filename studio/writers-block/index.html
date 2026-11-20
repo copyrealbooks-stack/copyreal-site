@@ -1,0 +1,64 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Writer's Block Rescue | Copy Real Creator Studio</title><meta name="description" content="Free practical prompts to get unstuck in fiction and non-fiction writing. Build a scene or argument rescue plan without uploading your notes."><link rel="canonical" href="https://copyreal.com/studio/writers-block/"><link rel="stylesheet" href="../services.css"></head><body>
+<header class="top"><nav class="wrap topnav"><a href="https://copyreal.com/">COPY REAL</a><a href="https://copyreal.com/studio/">Creator Studio</a><a href="https://copyreal.com/publish/">Publish My Book</a><a href="https://copyreal.com/studio/review/">Review My Book</a></nav></header>
+<main><section class="hero wrap"><div class="kicker">Free · Writer's desk</div><h1>Writer's Block Rescue</h1><p class="lead">You know your book better than a machine does. This tool helps you identify the next decision and start writing again. It generates a structured set of exercises in your browser; it doesn't read or analyse a whole manuscript.</p></section>
+<section class="section wrap"><div class="two"><div class="panel">
+<div class="field"><label for="project">What are you writing?</label><select id="project"><option value="fiction">Fiction / narrative</option><option value="nonfiction">Non-fiction / argument</option><option value="memoir">Memoir / personal account</option></select></div>
+<div class="field"><label for="stuck">What's stopping you?</label><select id="stuck"><option value="begin">I can't begin</option><option value="next">I don't know what happens next</option><option value="flat">The scene or section feels lifeless</option><option value="structure">The structure is muddled</option><option value="voice">The voice isn't right</option><option value="ending">I can't find the ending</option><option value="avoid">I keep avoiding the work</option></select></div>
+<div class="field"><label for="context">Where exactly are you stuck?</label><textarea id="context" rows="6" maxlength="2400" placeholder="Example: My detective has found a box of letters, but every possible next scene feels like an information dump."></textarea><p class="small">Two or three sentences are enough. Do not paste sensitive unpublished manuscript passages.</p></div>
+<div class="field"><label for="goal">What would you like the next scene or section to achieve?</label><input id="goal" maxlength="240" placeholder="e.g. force a choice, expose a contradiction, explain the evidence"></div>
+<div class="buttons"><button type="button" id="rescue">Give me a rescue plan</button><button type="button" class="alt" id="another">Try another angle</button></div><p class="status" role="status" id="status"></p></div>
+<div class="panel"><label for="output">Your rescue plan</label><textarea class="out" id="output" rows="22" readonly placeholder="Your writing exercise will appear here."></textarea><div class="buttons"><button type="button" id="copy">Copy plan</button></div><div class="note"><strong>A tool, not a ghostwriter.</strong><p>These prompts are deliberately designed to provoke decisions without writing your novel for you. A stronger manuscript still needs reading, revision and editorial judgement.</p><p>For help identifying recurring structural problems, see <a href="https://copyreal.com/studio/review/">Review My Book</a>.</p></div></div></div></section>
+<section class="section wrap"><h2>Three useful ways out of a difficult passage</h2><div class="three"><div class="card"><h3>Start with consequence</h3><p>Write the next consequence of what has already happened. You can work backwards to the transition later.</p></div><div class="card"><h3>Ask what's missing</h3><p>Look for an unmade decision, unanswered objection or piece of evidence that could change the situation.</p></div><div class="card"><h3>Give it a limit</h3><p>Write for ten minutes without polishing. Mark uncertain facts in square brackets and keep moving.</p></div></div></section></main><footer class="foot"><div class="wrap">© 2026 Copy Real · All exercises run locally. No text is sent to a server.</div></footer>
+<script>
+(function(){
+"use strict";
+const E=id=>document.getElementById(id),V=id=>E(id).value.trim();
+let revision=0;
+const tasks={
+ fiction:{
+ begin:["Begin at the first decision that costs somebody something.","Write a physical action that interrupts an ordinary routine.","Start with a consequence, then reveal its cause later."],
+ next:["List three choices your viewpoint character could make, including one they would rather avoid.","Identify what another character wants in the next five minutes. Let the aims collide.","Ask which piece of information would change the character's plan."],
+ flat:["Remove background explanation and write only what two people want from each other.","Shift the scene's power: who knows something the other does not?","Give the scene a small irreversible action."],
+ structure:["Write one sentence for each scene: someone wants X, obstacle Y prevents it, consequence Z follows.","Move the revelation later and test whether earlier scenes still make sense.","Identify the turning point that genuinely changes the situation."],
+ voice:["Rewrite one paragraph as a character telling it to somebody they distrust.","List three words this viewpoint character would never choose.","Replace abstract judgement with an observation only this character would notice."],
+ ending:["Write the decision the protagonist must finally make, without setting or dialogue.","Identify the promise made to the reader at the beginning and whether it has been answered.","Write the aftermath first: what can never be restored?"],
+ avoid:["Open the file and write one deliberately imperfect sentence.","Write a 100-word summary of the next scene, no dialogue or polish.","Choose one unsolved problem and mark it [CHECK LATER]."]
+ },
+ nonfiction:{
+ begin:["State the question your reader came to have answered.","Write your claim in one sentence, then the strongest objection.","Begin with a concrete example you can substantiate."],
+ next:["Identify which claim logically needs evidence next.","Write the most serious reasonable objection to your argument.","Ask what the reader must understand before the following section."],
+ flat:["Replace one generalisation with an example you can verify.","Show the consequences of the claim for a specific reader.","Ask whether the paragraph advances evidence or merely repeats the premise."],
+ structure:["Give each section one distinct reader question.","Separate evidence, interpretation and uncertainty in your outline.","Check whether the conclusion depends on a premise you have not established."],
+ voice:["Rewrite one paragraph for a thoughtful, sceptical reader.","Replace jargon with precise ordinary English where meaning survives.","Remove adjectives that evaluate evidence without demonstrating it."],
+ ending:["Answer the opening question plainly and state the residual uncertainty.","State what the reader can reasonably conclude from the evidence presented.","Identify one actionable implication without extending beyond your sources."],
+ avoid:["Draft headings only, each phrased as a reader question.","Write the strongest objection you can find and label it unverified until checked.","Create a list of claims that need sources before editing prose."]
+ },
+ memoir:{
+ begin:["Describe one witnessed event before explaining what it meant.","Start with an object or place whose significance changed over time.","Write a remembered scene with clear limits on what you can know."],
+ next:["Ask what choice followed the last event and why it mattered.","Separate what you knew then from what you know now.","Choose the moment that altered a relationship or understanding."],
+ flat:["Replace summary with a concrete, honestly remembered moment.","Let an inconsistency remain visible rather than smoothing it away.","Identify whose perspective is missing or not yours to claim."],
+ structure:["Order the major turning points by date before choosing narrative order.","Write the central question each chapter answers.","Mark uncertain chronology for verification."],
+ voice:["Write the passage as a private recollection, without performing for the reader.","Distinguish the narrator now from the person in the memory.","Remove anything that attributes another person's motives without evidence."],
+ ending:["Describe what genuinely changed, including what remains unresolved.","Return to an early image only if it has earned its place.","Conclude with a witnessed fact rather than a manufactured lesson."],
+ avoid:["Write one memory for five minutes and label uncertain details.","List five dates or places you can verify.","Draft a paragraph addressed to yourself, then decide what belongs in the book."]
+ }
+};
+function build(){
+ const context=V("context"),goal=V("goal"),kind=V("project"),issue=V("stuck");
+ if(context.length<16){E("status").textContent="Describe the difficulty in at least 16 characters.";return}
+ const set=tasks[kind][issue],idx=revision%set.length;
+ const chosen=set[idx],alt=set[(idx+1)%set.length];
+ const plan="WRITER'S BLOCK RESCUE\n\nPROJECT: "+E("project").selectedOptions[0].textContent+
+ "\nBLOCK: "+E("stuck").selectedOptions[0].textContent+
+ "\nYOUR SITUATION: "+context+
+ "\nNEXT-SECTION AIM: "+(goal||"Make one concrete decision that advances the work")+
+ "\n\n1. START HERE\n"+chosen+
+ "\n\n2. TEST THE IDEA\n"+alt+
+ "\n\n3. TEN-MINUTE EXERCISE\nWrite 150–250 words addressing only that question. Do not edit while drafting. Use [VERIFY] for facts or continuity you cannot yet establish.\n\n4. AFTERWARDS\nUnderline the sentence where something changes. If nothing changes, consider whether you have begun too early or repeated an earlier point.\n\n5. DECIDE\nKeep the material that advances the intended aim. Discard the rest without apologising to it.";
+ E("output").value=plan;E("status").textContent="A practical writing plan is ready. Try another angle to change the exercise.";
+}
+E("rescue").addEventListener("click",()=>{revision=0;build()});
+E("another").addEventListener("click",()=>{revision++;build()});
+E("copy").addEventListener("click",async()=>{if(!E("output").value){E("status").textContent="Generate a plan first.";return}try{await navigator.clipboard.writeText(E("output").value);E("status").textContent="Plan copied."}catch(e){E("status").textContent="Select the text in the box to copy it."; }});
+})();
+</script></body></html>
