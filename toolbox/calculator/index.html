@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101b27">
+  <meta name="description" content="Free audiobook budget and break-even calculator. Estimate finished hours, production costs and the sales required to recover your investment.">
+  <meta name="robots" content="index, follow">
+  <title>Free Audiobook Budget & Break-even Calculator | Copy Real Audio</title>
+  <style>
+    :root { color-scheme: light; --ink:#142230; --muted:#556677; --sea:#056c74; --light:#edf6f5; --line:#d8e2e8; --gold:#e8ba60; --bg:#f6f8f9; --error:#a61b1b; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--ink); background:var(--bg); line-height:1.55; }
+    a { color:var(--sea); }
+    a:focus-visible, button:focus-visible, input:focus-visible { outline:3px solid #e8ba60; outline-offset:3px; }
+    .wrap { width:min(1100px,calc(100% - 36px)); margin-inline:auto; }
+    header { background:var(--ink); color:#fff; padding:19px 0; }
+    .header-flex { display:flex; align-items:center; justify-content:space-between; gap:15px; flex-wrap:wrap; }
+    .brand { color:#fff; text-decoration:none; font-weight:850; font-size:1rem; letter-spacing:.09em; }
+    .brand small { display:block; font-size:.65rem; letter-spacing:.27em; color:#b7e0df; }
+    header nav a { font-size:.9rem; text-decoration:none; color:#d9e5e7; }
+    .hero { background:linear-gradient(125deg,#13232e 0%,#173f48 100%); color:white; padding:58px 0 65px; }
+    .eyebrow { text-transform:uppercase; font-weight:750; letter-spacing:.16em; font-size:.74rem; color:#a6d9d5; }
+    h1 { max-width:840px; font-size:clamp(2rem,4.8vw,3.5rem); line-height:1.12; letter-spacing:-.045em; margin:10px 0 17px; }
+    .hero p { max-width:700px; margin:0; color:#d7e8e9; font-size:1.05rem; }
+    main { padding:32px 0 68px; }
+    .layout { display:grid; grid-template-columns:minmax(0,1fr) minmax(300px,.84fr); gap:22px; align-items:start; }
+    .panel { background:white; border:1px solid var(--line); border-radius:18px; padding:25px; box-shadow:0 6px 25px rgba(10,35,44,.045); }
+    h2 { margin:0 0 8px; font-size:1.5rem; line-height:1.25; }
+    h3 { font-size:1.16rem; margin:0 0 8px; }
+    .sub { margin:0 0 24px; color:var(--muted); font-size:.93rem; }
+    .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+    .field { display:flex; flex-direction:column; gap:5px; }
+    .field.full { grid-column:1/-1; }
+    label { font-size:.89rem; font-weight:730; }
+    .hint { color:var(--muted); font-size:.78rem; line-height:1.3; }
+    input { width:100%; appearance:textfield; border:1px solid #bacbd3; border-radius:9px; padding:12px; font:inherit; color:var(--ink); background:#fff; }
+    input::-webkit-inner-spin-button { opacity:1; }
+    .button-row { display:flex; gap:12px; margin-top:22px; flex-wrap:wrap; }
+    button, .link-button { display:inline-flex; align-items:center; justify-content:center; cursor:pointer; border-radius:9px; border:0; padding:11px 16px; font:inherit; font-weight:760; text-decoration:none; }
+    .primary { background:var(--sea); color:white; }
+    .primary:hover { background:#034d54; }
+    .secondary { background:#e8f0f3; color:var(--ink); }
+    .secondary:hover { background:#d7e7ec; }
+    .results { position:sticky; top:20px; }
+    .results-title { display:flex; justify-content:space-between; gap:10px; align-items:center; }
+    .tag { border-radius:100px; background:var(--light); color:#075a60; font-size:.72rem; padding:5px 10px; white-space:nowrap; font-weight:750; }
+    .metrics { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:18px; }
+    .metric { background:#f3f7f7; border:1px solid #e0eaed; border-radius:12px; padding:16px 13px; }
+    .metric .value { font-size:clamp(1.43rem,3.4vw,2rem); font-weight:800; line-height:1.16; margin:3px 0 6px; font-variant-numeric:tabular-nums; letter-spacing:-.035em; overflow-wrap:anywhere; }
+    .metric .name { color:var(--muted); text-transform:uppercase; font-size:.68rem; font-weight:700; letter-spacing:.07em; }
+    .projection { margin-top:18px; border-radius:12px; background:var(--ink); color:white; padding:18px; }
+    .projection .name { font-size:.78rem; color:#d0e0e3; }
+    .projection .value { font-size:2rem; line-height:1.28; font-weight:800; margin-top:4px; font-variant-numeric:tabular-nums; }
+    .projection .note { color:#cfe2e4; font-size:.79rem; margin:6px 0 0; }
+    .disclaimer { color:var(--muted); font-size:.81rem; margin:16px 0 0; }
+    .error { color:var(--error); font-size:.88rem; font-weight:650; min-height:0; margin-top:10px; }
+    .below { display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:24px; }
+    .below p { color:#405464; margin:8px 0 0; }
+    .below ul { padding-left:20px; margin-bottom:0; }
+    .callout { margin-top:24px; padding:26px; border-radius:18px; background:#e8f2f1; border:1px solid #cce0df; display:flex; justify-content:space-between; gap:18px; align-items:center; }
+    .callout p { max-width:680px; margin:7px 0 0; color:#375a5c; }
+    .callout .link-button { flex-shrink:0; }
+    footer { background:#142230; color:#b7c5cb; padding:30px 0; font-size:.84rem; }
+    footer a { color:#d3f0ed; }
+    @media (max-width:780px) { .layout,.below { grid-template-columns:1fr; } .results { position:static; } .callout { flex-direction:column; align-items:stretch; } }
+    @media (max-width:480px) { .form-grid { grid-template-columns:1fr; } .panel { padding:19px; } .hero { padding:45px 0 48px; } .metrics { gap:9px; } .metric { padding:13px 10px; } .button-row button { flex:1; } }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap header-flex">
+      <a href="https://copyreal.com" class="brand" aria-label="Copy Real Audio home">COPY REAL <small>AUDIO</small></a>
+      <nav aria-label="Main navigation"><a href="../">Free tools</a> &nbsp; <a href="https://copyreal.com">Visit Copy Real</a></nav>
+    </div>
+  </header>
+  <section class="hero" aria-labelledby="page-title">
+    <div class="wrap">
+      <div class="eyebrow">Free publishing tool · No account needed</div>
+      <h1 id="page-title">Will your audiobook pay for itself?</h1>
+      <p>Estimate finished recording hours, production costs and the number of sales needed to break even. Adjust the assumptions to match your project.</p>
+    </div>
+  </section>
+  <main class="wrap">
+    <div class="layout">
+      <section class="panel" aria-labelledby="inputs-title">
+        <h2 id="inputs-title">Your audiobook numbers</h2>
+        <p class="sub">Enter your estimates below. Calculations update as you type. Nothing is uploaded or saved by this tool.</p>
+        <div class="form-grid">
+          <div class="field">
+            <label for="words">Manuscript word count</label>
+            <input id="words" type="number" inputmode="numeric" min="1" max="5000000" step="1000" value="80000">
+            <span class="hint">For example, 80,000 words</span>
+          </div>
+          <div class="field">
+            <label for="wpm">Narration speed (words/min)</label>
+            <input id="wpm" type="number" inputmode="numeric" min="50" max="300" step="5" value="155">
+            <span class="hint">Start with 155; adjust for your narrator</span>
+          </div>
+          <div class="field">
+            <label for="pfh">Production cost (£/finished hour)</label>
+            <input id="pfh" type="number" inputmode="decimal" min="0" max="10000" step="10" value="200">
+            <span class="hint">Your own all-in budget assumption</span>
+          </div>
+          <div class="field">
+            <label for="extras">Other one-off costs (£)</label>
+            <input id="extras" type="number" inputmode="decimal" min="0" max="1000000" step="25" value="0">
+            <span class="hint">Artwork, admin, marketing, etc.</span>
+          </div>
+          <div class="field">
+            <label for="net">Net income per sale (£)</label>
+            <input id="net" type="number" inputmode="decimal" min="0.01" max="10000" step="0.25" value="4">
+            <span class="hint">After distributor/platform deductions</span>
+          </div>
+          <div class="field">
+            <label for="sales">Expected number of sales</label>
+            <input id="sales" type="number" inputmode="numeric" min="0" max="100000000" step="25" value="250">
+            <span class="hint">Try conservative and optimistic cases</span>
+          </div>
+        </div>
+        <p id="error" class="error" role="status" aria-live="polite"></p>
+        <div class="button-row">
+          <button type="button" class="secondary" id="reset">Reset assumptions</button>
+          <button type="button" class="primary" id="copy">Copy calculation</button>
+        </div>
+      </section>
+      <section class="panel results" aria-labelledby="results-title">
+        <div class="results-title">
+          <h2 id="results-title">Your estimate</h2>
+          <span class="tag">Live calculation</span>
+        </div>
+        <div class="metrics" aria-live="polite" aria-atomic="true">
+          <div class="metric"><div class="name">Finished audio</div><div class="value" id="hours">—</div><div class="hint">hours (approx.)</div></div>
+          <div class="metric"><div class="name">Upfront budget</div><div class="value" id="budget">—</div><div class="hint">estimated total</div></div>
+          <div class="metric"><div class="name">Break-even point</div><div class="value" id="break-even">—</div><div class="hint">sales required</div></div>
+          <div class="metric"><div class="name">Revenue at forecast</div><div class="value" id="revenue">—</div><div class="hint">before production costs</div></div>
+        </div>
+        <div class="projection" role="status" aria-live="polite">
+          <div class="name">Estimated result after upfront costs</div>
+          <div class="value" id="profit">—</div>
+          <p class="note" id="profit-note">Enter your estimates to see the result.</p>
+        </div>
+        <p class="disclaimer">Planning figures only, not a financial forecast or production quotation. Actual narration speed, production costs, platform terms, returns and sales will vary.</p>
+      </section>
+    </div>
+    <div class="below">
+      <section class="panel">
+        <h3>How the calculation works</h3>
+        <p>We divide manuscript words by the number of words narrated per minute to estimate finished running time. We then multiply that time by your all-in cost per finished hour and add any one-off costs.</p>
+        <p>The break-even figure divides total costs by your assumed net income per sale, rounded up to the next whole sale.</p>
+      </section>
+      <section class="panel">
+        <h3>What to include in your assumptions</h3>
+        <ul>
+          <li>Narration, editing, proof-listening, mastering and revisions.</li>
+          <li>Cover artwork, distribution fees and launch costs.</li>
+          <li>Your own time, even if you are doing the production yourself.</li>
+          <li>A realistic net amount received per sale — not the retail price.</li>
+        </ul>
+      </section>
+    </div>
+    <section class="callout" aria-labelledby="callout-title">
+      <div>
+        <h2 id="callout-title">Making an audiobook?</h2>
+        <p>Copy Real Audio produces and publishes spoken-word work. Explore the catalogue and learn more about the studio.</p>
+      </div>
+      <a class="link-button primary" href="https://copyreal.com" rel="noopener noreferrer">Explore Copy Real Audio</a>
+    </section>
+  </main>
+  <footer>
+    <div class="wrap">© <span id="year">2026</span> Copy Real Audio. Free audiobook planning tool. <a href="https://copyreal.com">copyreal.com</a></div>
+  </footer>
+  <script>
+    (() => {
+      'use strict';
+      const defaults = {words:80000,wpm:155,pfh:200,extras:0,net:4,sales:250};
+      const limits = {words:[1,5000000],wpm:[50,300],pfh:[0,10000],extras:[0,1000000],net:[0.01,10000],sales:[0,100000000]};
+      const ids = Object.keys(defaults);
+      const field = id => document.getElementById(id);
+      const money = value => new Intl.NumberFormat('en-GB', {style:'currency',currency:'GBP',maximumFractionDigits:0}).format(value);
+      const integer = value => new Intl.NumberFormat('en-GB', {maximumFractionDigits:0}).format(value);
+      const decimal = value => new Intl.NumberFormat('en-GB', {minimumFractionDigits:1,maximumFractionDigits:1}).format(value);
+      let lastSummary = '';
+      function calculate() {
+        const v = {};
+        for (const id of ids) {
+          const raw = field(id).value.trim();
+          const value = Number(raw);
+          const [lo,hi] = limits[id];
+          if (!raw || !Number.isFinite(value) || value < lo || value > hi) {
+            field('error').textContent = `Please enter a valid ${field(id).previousElementSibling.textContent.toLowerCase()} (${lo}–${hi}).`;
+            ['hours','budget','break-even','revenue','profit'].forEach(k => field(k).textContent = '—');
+            field('profit-note').textContent = 'Correct the input to recalculate.';
+            lastSummary = '';
+            return;
+          }
+          v[id] = value;
+        }
+        field('error').textContent = '';
+        const hours = v.words / v.wpm / 60;
+        const budget = hours * v.pfh + v.extras;
+        const revenue = v.sales * v.net;
+        const profit = revenue - budget;
+        const breakEven = Math.ceil(budget/v.net);
+        field('hours').textContent = decimal(hours);
+        field('budget').textContent = money(budget);
+        field('break-even').textContent = integer(breakEven);
+        field('revenue').textContent = money(revenue);
+        field('profit').textContent = `${profit >= 0 ? '+' : '−'}${money(Math.abs(profit))}`;
+        field('profit-note').textContent = profit >= 0 ? 'Estimated surplus after the stated production costs.' : 'Estimated shortfall at your chosen sales forecast.';
+        lastSummary = `Copy Real Audio — Audiobook Budget Estimate\nManuscript: ${integer(v.words)} words\nNarration speed: ${v.wpm} words/minute\nFinished duration: ${decimal(hours)} hours\nProduction cost per finished hour: ${money(v.pfh)}\nOther one-off costs: ${money(v.extras)}\nEstimated upfront budget: ${money(budget)}\nNet income per sale: £${v.net.toFixed(2)}\nBreak-even sales: ${integer(breakEven)}\nForecast sales: ${integer(v.sales)}\nForecast net revenue before upfront costs: ${money(revenue)}\nEstimated result: ${profit>=0?'+':'-'}${money(Math.abs(profit))}\n\nIllustrative assumptions, not a quotation or financial forecast.\nhttps://copyreal.com`;
+      }
+      ids.forEach(id => field(id).addEventListener('input', calculate));
+      field('reset').addEventListener('click', () => { ids.forEach(id => field(id).value = defaults[id]); calculate(); });
+      field('copy').addEventListener('click', async () => {
+        if (!lastSummary) { field('error').textContent = 'Please correct your inputs before copying.'; return; }
+        const button = field('copy');
+        try {
+          if (navigator.clipboard && window.isSecureContext) await navigator.clipboard.writeText(lastSummary);
+          else {
+            const el = document.createElement('textarea'); el.value=lastSummary; el.style.position='fixed'; el.style.opacity='0'; document.body.appendChild(el); el.select();
+            if (!document.execCommand('copy')) throw new Error('Unable to copy');
+            el.remove();
+          }
+          button.textContent = 'Copied';
+          setTimeout(() => button.textContent = 'Copy calculation', 1800);
+        } catch (err) { window.prompt('Copy this estimate:',lastSummary); }
+      });
+      field('year').textContent = new Date().getFullYear();
+      calculate();
+    })();
+  </script>
+</body>
+</html>

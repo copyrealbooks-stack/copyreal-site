@@ -1,0 +1,101 @@
+[
+  {
+    "file": "audio_wav_to_mp3_192.bat",
+    "category": "Audio",
+    "name": "WAV → MP3 192 kbps",
+    "description": "Create MP3 listening or delivery copies from WAV files.",
+    "requirement": "FFmpeg",
+    "caveat": "Creates new MP3s; never changes WAVs.",
+    "sha256": "1ff3056832d46bd28a280733dedcf2b9fe4f9cdd663d9be1994dd33265ff3499"
+  },
+  {
+    "file": "audio_wav_to_mono_48k.bat",
+    "category": "Audio",
+    "name": "WAV → mono 48 kHz",
+    "description": "Create 16-bit mono WAV working copies.",
+    "requirement": "FFmpeg",
+    "caveat": "Downmixes channels. Check the result before delivery.",
+    "sha256": "0c1eebfdea779c6475fe76a83c30b7c044659775f90b832da9826c80ad213142"
+  },
+  {
+    "file": "audio_wav_to_44k16.bat",
+    "category": "Audio",
+    "name": "WAV → 44.1 kHz / 16-bit",
+    "description": "Convert sample rate and bit depth into separate WAV copies.",
+    "requirement": "FFmpeg",
+    "caveat": "This alters technical format, not mastering quality.",
+    "sha256": "4524081f918ef388a4151b3394e04eb59213b4678265678fc11c90b2253d112f"
+  },
+  {
+    "file": "audio_peak_report.bat",
+    "category": "Audio",
+    "name": "Volume / peak report",
+    "description": "Inspect mean and maximum sample volume in audio files.",
+    "requirement": "FFmpeg",
+    "caveat": "Not an integrated-loudness or true-peak test.",
+    "sha256": "22846e062ce9109468163e09e27525daef60da9ec00f49818dc310432f471b17"
+  },
+  {
+    "file": "audio_silence_report.bat",
+    "category": "Audio",
+    "name": "Silence report",
+    "description": "Find candidate silent sections for editing review.",
+    "requirement": "FFmpeg",
+    "caveat": "Uses a -45 dBFS threshold for at least one second.",
+    "sha256": "247ed56d561ccd73bb08e3d992be685725f275b39881cc3fb2670f8610de9615"
+  },
+  {
+    "file": "video_extract_wav.bat",
+    "category": "Video",
+    "name": "Extract audio from video",
+    "description": "Turn MP4, MOV and MKV soundtracks into 48 kHz WAV copies.",
+    "requirement": "FFmpeg",
+    "caveat": "Retains the video; never modifies it.",
+    "sha256": "84a610ab841135c6834c56d22abab19e99dc5e4a1464965bba3d8edc915248cd"
+  },
+  {
+    "file": "text_clean_trailing_spaces.bat",
+    "category": "Text",
+    "name": "Clean trailing spaces",
+    "description": "Create UTF-8 TXT and Markdown copies without trailing line spaces.",
+    "requirement": "Windows PowerShell",
+    "caveat": "Do not use on DOCX or non-UTF-8 source files.",
+    "sha256": "4b60185876834d09e3dc76763c2e122b7df95738502dd23e2014ff0fdf945775"
+  },
+  {
+    "file": "text_word_count_csv.bat",
+    "category": "Text",
+    "name": "Word-count CSV",
+    "description": "Count approximate words and characters in plain text files.",
+    "requirement": "Windows PowerShell",
+    "caveat": "Uses whitespace-based word counts.",
+    "sha256": "b241319f84d1453ed16138a79c999a979ff6665e7479fd11467c5814a3e3f9fd"
+  },
+  {
+    "file": "files_inventory_csv.bat",
+    "category": "Files",
+    "name": "Folder inventory CSV",
+    "description": "Export a file list with paths, sizes, formats and dates.",
+    "requirement": "Windows PowerShell",
+    "caveat": "Recursively scans subfolders; does not rename anything.",
+    "sha256": "e3269e02ec0ff6ad0e3df0b1e365b42ee947ae41e71f2871a54942ff51ba41e3"
+  },
+  {
+    "file": "files_find_exact_duplicates.bat",
+    "category": "Files",
+    "name": "Exact-duplicate finder",
+    "description": "Find byte-identical files by comparing SHA-256 hashes.",
+    "requirement": "Windows PowerShell",
+    "caveat": "Never deletes files; can be slow on large collections.",
+    "sha256": "20b4281138dc04b363eab44f1cbbb0650a81fd4bcdd7ab90861ed4a5cc8374c0"
+  },
+  {
+    "file": "images_dimensions_csv.bat",
+    "category": "Images",
+    "name": "Image dimensions CSV",
+    "description": "Report width and height of JPG and PNG images.",
+    "requirement": "Windows PowerShell",
+    "caveat": "Reports only; no image modifications.",
+    "sha256": "e8106c27320ae87116eed9717d1c969abecccdbbcbbfd74160a5475efad38e32"
+  }
+]
