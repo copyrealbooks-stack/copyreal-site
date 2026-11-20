@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://copyreal.com/sitemap.xml
