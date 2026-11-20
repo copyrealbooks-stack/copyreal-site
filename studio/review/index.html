@@ -19,7 +19,7 @@
 <label class="option" style="margin-bottom:10px"><input type="checkbox" data-key="ending"> The ending delivers an earned resolution or appropriately bounded conclusion.</label>
 </div><button id="selfReview" type="button">Identify priorities</button><p id="selfStatus" class="status" role="status"></p></div>
 <div class="panel"><label for="selfOutput">Revision priorities</label><textarea id="selfOutput" class="out" rows="18" readonly placeholder="Your checklist summary will appear here."></textarea><div class="buttons"><button id="copySelf" type="button">Copy self-review</button></div></div></div></section>
-<section class="section wrap" id="quote"><div class="kicker">Tailored editorial quotation</div><h2>Prepare a manuscript review brief</h2><p class="lead">The time required depends on manuscript length, genre, condition and whether you need a developmental diagnosis or detailed annotations. Build a scope request here. It stays on your device; a confidential submission route is still being arranged.</p>
+<section class="section wrap" id="quote"><div class="kicker">Tailored editorial quotation</div><h2>Prepare a manuscript review brief</h2><p class="lead">The time required depends on manuscript length, genre, condition and whether you need a developmental diagnosis or detailed annotations. Build a scope request here. The brief stays on your device until you choose to open an email draft. It is not sent automatically, and you should not attach an unpublished full manuscript at this stage.</p>
 <div class="two"><div class="panel">
 <div class="field"><label for="title">Working title</label><input id="title" maxlength="180" placeholder="Book title"></div>
 <div class="field"><label for="genre">Category</label><select id="genre"><option>Literary / commercial fiction</option><option>Crime / suspense</option><option>Fantasy / science fiction</option><option>Romance</option><option>Memoir</option><option>Practical non-fiction</option><option>Evidence-led non-fiction</option><option>Children / young adult</option><option>Other</option></select></div>
@@ -29,8 +29,8 @@
 <div class="field"><label for="concerns">What worries you most?</label><textarea id="concerns" rows="5" maxlength="2400" placeholder="Pacing, repetition, a weak middle, a confusing ending, evidence gaps, inconsistent characters..."></textarea></div>
 <div class="field"><label for="status">What has already been reviewed or approved?</label><textarea id="status" rows="3" maxlength="1400" placeholder="Beta-reader notes, previously approved chapters, editorial decisions that should remain intact..."></textarea></div>
 <div class="buttons"><button id="makeQuote" type="button">Prepare review brief</button></div><p id="quoteStatus" class="status" role="status"></p></div>
-<div class="panel"><label for="quoteOutput">Your review brief — editable</label><textarea id="quoteOutput" class="out" rows="23" placeholder="Your prepared request will appear here."></textarea><div class="buttons"><button id="copyQuote" type="button">Copy brief</button><button id="saveQuote" class="alt" type="button">Save .txt</button></div>
-<div class="note"><strong>What happens next?</strong><p>At present this is a local briefing tool, not a manuscript upload form or confirmed booking. A private enquiry channel and written quotation must be in place before any author sends a full manuscript. We won't charge for a review until the scope, timescale and deliverables are agreed.</p></div></div></div></section>
+<div class="panel"><label for="quoteOutput">Your review brief — editable</label><textarea id="quoteOutput" class="out" rows="23" placeholder="Your prepared request will appear here."></textarea><div class="buttons"><button id="sendMail" type="button">Open email enquiry</button><button id="sendGmail" class="alt" type="button">Open in Gmail</button><button id="copyQuote" class="alt" type="button">Copy brief</button><button id="saveQuote" class="alt" type="button">Save .txt</button></div><p class="small">Addressed to <a href="mailto:copyrealbooks@gmail.com">copyrealbooks@gmail.com</a>. You must press Send yourself. If nothing opens, copy the brief and send it manually.</p>
+<div class="note"><strong>What happens next?</strong><p>At present this is a local briefing tool, not a manuscript upload form or confirmed booking. The email enquiry allows us to discuss the review scope and provide a written quotation. Please do not send a full manuscript until we agree a transfer process. We will not charge before the work, price and deliverables are agreed.</p></div></div></div></section>
 <section class="section wrap"><div class="note"><strong>Need production rather than criticism?</strong> Go to <a href="https://copyreal.com/publish/">Publish My Book</a> for ebook, paperback, hardback and audio. If you're merely stuck on the next paragraph, use <a href="https://copyreal.com/studio/writers-block/">Writer's Block Rescue</a>.</div></section>
 </main><footer class="foot"><div class="wrap">© 2026 Copy Real. Candid editorial services, individually scoped. No customer manuscripts are uploaded on this page.</div></footer>
 <script>
@@ -69,6 +69,19 @@ E("makeQuote").addEventListener("click",()=>{
 });
 async function copy(from,to){if(!V(from)){E(to).textContent="Generate a brief first.";return}try{await navigator.clipboard.writeText(E(from).value);E(to).textContent="Copied."}catch(e){E(to).textContent="Select the text manually to copy it."}}
 E("copyQuote").addEventListener("click",()=>copy("quoteOutput","quoteStatus"));
+function openEnquiry(gmail){
+ const message=E("quoteOutput").value;
+ if(!message){E("quoteStatus").textContent="Prepare a brief first.";return}
+ const subject="Copy Real editorial review enquiry: "+(V("title")||"Untitled");
+ const body=message.length>2400?message.slice(0,2400)+"\n\n[Full saved brief is longer; please attach or paste the remainder.]":message;
+ const to="copyrealbooks@gmail.com";
+ const url=gmail?"https://mail.google.com/mail/?view=cm&fs=1&to="+encodeURIComponent(to)+"&su="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body):"mailto:"+to+"?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
+ E("quoteStatus").textContent="Your email draft is opening. Nothing has been sent: review it and press Send in your email app.";
+ if(gmail){window.open(url,"_blank","noopener,noreferrer")}else{window.location.href=url}
+}
+E("sendMail").addEventListener("click",()=>openEnquiry(false));
+E("sendGmail").addEventListener("click",()=>openEnquiry(true));
+
 E("saveQuote").addEventListener("click",()=>{
  if(!V("quoteOutput")){E("quoteStatus").textContent="Prepare a brief first.";return}
  const url=URL.createObjectURL(new Blob([E("quoteOutput").value],{type:"text/plain;charset=utf-8"})),a=document.createElement("a");a.href=url;a.download="copyreal-editorial-review-brief.txt";document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);E("quoteStatus").textContent="Brief downloaded.";

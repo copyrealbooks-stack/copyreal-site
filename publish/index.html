@@ -11,7 +11,7 @@
 <div class="card"><h3>Multi-format package</h3><p>Coordinated editions, consistent metadata and appropriate preflight checks before handover.</p></div>
 </div></section>
 <section class="section wrap"><h2>How we work</h2><div class="two"><div class="card"><h3>Assisted self-publishing</h3><p>In the standard service model, the author retains their copyright, chooses the publishing accounts and approves the final files. Copy Real provides the production work stated in the agreement.</p></div><div class="card"><h3>Publishing under Copy Real</h3><p>Imprint consideration, licensing, royalty-sharing, or distribution through Copy Real require separate editorial acceptance and written terms. Purchasing a production service does not guarantee publication under the imprint.</p></div></div></section>
-<section id="request" class="section wrap"><div class="kicker">Start without uploading your manuscript</div><h2>Publishing quotation brief</h2><p class="lead">Complete this short brief, then save or copy it. It is generated on your device and <strong>is not yet submitted</strong> to Copy Real. We'll introduce a private enquiry and file-transfer process before accepting complete manuscripts.</p>
+<section id="request" class="section wrap"><div class="kicker">Start without uploading your manuscript</div><h2>Publishing quotation brief</h2><p class="lead">Complete this short brief, then save or copy it. The brief is prepared locally, and you can open a pre-filled email addressed to Copy Real. <strong>It is only submitted when you press Send in your email application.</strong> Please do not email a complete unpublished manuscript at this stage.</p>
 <div class="two"><div class="panel">
 <div class="field"><label for="title">Working title</label><input id="title" maxlength="180" placeholder="Your book title"></div>
 <div class="field"><label for="genre">Category</label><select id="genre"><option>Fiction</option><option>Non-fiction</option><option>Memoir / biography</option><option>Children's / young adult</option><option>Poetry</option><option>Illustrated / reference</option><option>Academic</option><option>Other</option></select></div>
@@ -29,7 +29,7 @@
 <div class="field"><label for="route">Preferred route</label><select id="route"><option>Use my own KDP / retailer account</option><option>Help me choose platforms</option><option>I have a publisher / distributor</option><option>Request consideration for Copy Real imprint</option></select></div>
 <div class="field"><label for="notes">Special requirements</label><textarea id="notes" rows="4" maxlength="2600" placeholder="Deadlines, bilingual material, complex tables, KDP rejection notices, illustrations, accessibility needs..."></textarea></div>
 <div class="buttons"><button id="build" type="button">Prepare quotation brief</button></div><p class="status" id="status" role="status"></p></div>
-<div class="panel"><label for="output">Prepared brief — editable</label><textarea class="out" id="output" rows="22" placeholder="Your project description appears here. No files are transmitted."></textarea><div class="buttons"><button id="copy" type="button">Copy brief</button><button id="save" class="alt" type="button">Save .txt file</button></div><div class="note"><strong>Manuscript safety.</strong><p>Don't paste entire unpublished books into this form. We'll arrange private file transfer once your project is accepted for assessment. This page does not accept payment for a full publishing package and does not promise a fixed price.</p></div></div></div></section>
+<div class="panel"><label for="output">Prepared brief — editable</label><textarea class="out" id="output" rows="22" placeholder="Your project description appears here. No files are transmitted."></textarea><div class="buttons"><button id="sendMail" type="button">Open email enquiry</button><button id="sendGmail" class="alt" type="button">Open in Gmail</button><button id="copy" class="alt" type="button">Copy brief</button><button id="save" class="alt" type="button">Save .txt file</button></div><p class="small">Addressed to <a href="mailto:copyrealbooks@gmail.com">copyrealbooks@gmail.com</a>. You must press Send in your email application; if it does not open, copy your brief and send it manually.</p><div class="note"><strong>Manuscript safety.</strong><p>Don't paste entire unpublished books into this form. We'll arrange private file transfer once your project is accepted for assessment. No publishing payment is collected here, and no price or imprint acceptance is promised. We will arrange manuscript transfer after discussing your enquiry.</p></div></div></div></section>
 <section class="section wrap"><div class="note"><strong>Want editorial feedback before production?</strong> See <a href="https://copyreal.com/studio/review/">Review My Book</a>. Planning an audiobook? Try the <a href="https://copyreal.com/toolbox/calculator/">free audio calculator</a> or request a <a href="https://copyreal.com/toolbox/review/">£79 feasibility review</a>.</div></section>
 </main><footer class="foot"><div class="wrap">© 2026 Copy Real. Individual quotation, written agreement and rights checks required before work begins.</div></footer>
 <script>
@@ -49,9 +49,22 @@ function build(){
  "\n\nPREFERRED PUBLISHING ROUTE\n"+V("route")+
  "\n\nSPECIAL REQUIREMENTS\n"+(V("notes")||"Not specified")+
  "\n\nTO BE CONFIRMED BEFORE QUOTATION\n- Rights and permissions for text, images and audio\n- Whether substantive editing is required\n- Print trim, colour, paper and printer where relevant\n- Deliverables, revision limits, schedule and responsibility for proof approval\n- Distribution responsibilities and account ownership\n\nPrepared using Copy Real's browser-only briefing tool. This is not an order or an accepted manuscript.";
- E("status").textContent="Brief prepared locally. Save it for a private enquiry once intake is available.";
+ E("status").textContent="Brief ready. Open an email draft, check the recipient and press Send."
 }
 E("build").addEventListener("click",build);
+function openEnquiry(gmail){
+ const message=E("output").value;
+ if(!message){E("status").textContent="Prepare a brief first.";return}
+ const subject="Copy Real publishing enquiry: "+(V("title")||"Untitled");
+ const body=message.length>2400?message.slice(0,2400)+"\n\n[Full saved brief is longer; please attach or paste the remainder.]":message;
+ const to="copyrealbooks@gmail.com";
+ const url=gmail?"https://mail.google.com/mail/?view=cm&fs=1&to="+encodeURIComponent(to)+"&su="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body):"mailto:"+to+"?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
+ E("status").textContent="Your email draft is opening. Nothing has been sent: review it and press Send in your email app.";
+ if(gmail){window.open(url,"_blank","noopener,noreferrer")}else{window.location.href=url}
+}
+E("sendMail").addEventListener("click",()=>openEnquiry(false));
+E("sendGmail").addEventListener("click",()=>openEnquiry(true));
+
 E("copy").addEventListener("click",async()=>{if(!V("output")){E("status").textContent="Prepare a brief first.";return}try{await navigator.clipboard.writeText(E("output").value);E("status").textContent="Brief copied."}catch(e){E("status").textContent="Select the brief and copy it manually."; }});
 E("save").addEventListener("click",()=>{if(!V("output")){E("status").textContent="Prepare a brief first.";return}const blob=new Blob([E("output").value],{type:"text/plain;charset=utf-8"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="copyreal-publishing-brief.txt";document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);E("status").textContent="Quotation brief downloaded.";});
 })();
