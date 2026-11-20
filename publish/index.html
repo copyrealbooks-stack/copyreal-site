@@ -1,0 +1,58 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Publish My Book | Copy Real Publishing</title><meta name="description" content="Request personalised ebook, paperback, hardback and audiobook production from Copy Real. Prepare a publishing brief for a tailored quotation."><link rel="canonical" href="https://copyreal.com/publish/"><link rel="stylesheet" href="../studio/services.css"></head><body>
+<header class="top"><nav class="wrap topnav"><a href="https://copyreal.com/">COPY REAL</a><a href="https://copyreal.com/studio/">Creator Studio</a><a href="https://copyreal.com/studio/review/">Review My Book</a><a href="https://copyreal.com/toolbox/">Toolbox</a></nav></header>
+<main>
+<section class="hero wrap"><div class="kicker">Production services · Personal quotation</div><h1>Bring us your book.<br>Choose the format.</h1><p class="lead">Have a finished manuscript? Tell Copy Real what you want to publish: ebook, paperback, hardback, audiobook or several editions together. We'll assess the work before offering a scope and price. You needn't wrestle another KDP cover template into submission on your own.</p><p><a class="button" href="#request">Prepare your publishing brief</a></p><p class="small">A full publishing commission is not an automatic imprint deal. Rights, source quality, scope and distribution arrangements will be confirmed separately.</p></section>
+<section class="section wrap"><h2>What we can quote for</h2><div class="three">
+<div class="card"><h3>eBook / EPUB</h3><p>Reflowable ebook preparation, navigation, contents and relevant retailer-format checks.</p></div>
+<div class="card"><h3>Paperback</h3><p>Print-ready interiors and correctly measured full-wrap covers for the chosen trim, paper and printer specifications.</p></div>
+<div class="card"><h3>Hardback</h3><p>Hardcover layouts, case requirements and template-based spine and cover dimensions.</p></div>
+<div class="card"><h3>Audiobook</h3><p>Narration, recording, editing and mastering requirements quoted according to duration and production needs.</p></div>
+<div class="card"><h3>Illustrated editions</h3><p>Image handling, captions, colour, layout and print-readiness for more complex books.</p></div>
+<div class="card"><h3>Multi-format package</h3><p>Coordinated editions, consistent metadata and appropriate preflight checks before handover.</p></div>
+</div></section>
+<section class="section wrap"><h2>How we work</h2><div class="two"><div class="card"><h3>Assisted self-publishing</h3><p>In the standard service model, the author retains their copyright, chooses the publishing accounts and approves the final files. Copy Real provides the production work stated in the agreement.</p></div><div class="card"><h3>Publishing under Copy Real</h3><p>Imprint consideration, licensing, royalty-sharing, or distribution through Copy Real require separate editorial acceptance and written terms. Purchasing a production service does not guarantee publication under the imprint.</p></div></div></section>
+<section id="request" class="section wrap"><div class="kicker">Start without uploading your manuscript</div><h2>Publishing quotation brief</h2><p class="lead">Complete this short brief, then save or copy it. It is generated on your device and <strong>is not yet submitted</strong> to Copy Real. We'll introduce a private enquiry and file-transfer process before accepting complete manuscripts.</p>
+<div class="two"><div class="panel">
+<div class="field"><label for="title">Working title</label><input id="title" maxlength="180" placeholder="Your book title"></div>
+<div class="field"><label for="genre">Category</label><select id="genre"><option>Fiction</option><option>Non-fiction</option><option>Memoir / biography</option><option>Children's / young adult</option><option>Poetry</option><option>Illustrated / reference</option><option>Academic</option><option>Other</option></select></div>
+<div class="field"><label for="count">Approximate word count</label><input id="count" type="number" min="0" max="5000000" placeholder="e.g. 80000"></div>
+<div class="field"><label>Formats required</label><div class="options">
+<label class="option"><input type="checkbox" name="formats" value="EPUB / Kindle">eBook</label>
+<label class="option"><input type="checkbox" name="formats" value="Paperback">Paperback</label>
+<label class="option"><input type="checkbox" name="formats" value="Hardback">Hardback</label>
+<label class="option"><input type="checkbox" name="formats" value="Audiobook">Audiobook</label>
+<label class="option"><input type="checkbox" name="formats" value="Illustrated layout">Illustrated</label>
+<label class="option"><input type="checkbox" name="formats" value="Other special edition">Other</label>
+</div></div>
+<div class="field"><label for="source">Existing manuscript file</label><select id="source"><option>Word DOCX</option><option>Google Docs</option><option>PDF only</option><option>EPUB already made</option><option>Plain text</option><option>Scans or photographs</option><option>Other / mixed</option><option>Not finished</option></select></div>
+<div class="field"><label for="assets">Existing materials</label><textarea id="assets" rows="3" maxlength="1800" placeholder="Cover design, illustrations, ISBN, captions, footnotes, recorded audio, etc."></textarea></div>
+<div class="field"><label for="route">Preferred route</label><select id="route"><option>Use my own KDP / retailer account</option><option>Help me choose platforms</option><option>I have a publisher / distributor</option><option>Request consideration for Copy Real imprint</option></select></div>
+<div class="field"><label for="notes">Special requirements</label><textarea id="notes" rows="4" maxlength="2600" placeholder="Deadlines, bilingual material, complex tables, KDP rejection notices, illustrations, accessibility needs..."></textarea></div>
+<div class="buttons"><button id="build" type="button">Prepare quotation brief</button></div><p class="status" id="status" role="status"></p></div>
+<div class="panel"><label for="output">Prepared brief — editable</label><textarea class="out" id="output" rows="22" placeholder="Your project description appears here. No files are transmitted."></textarea><div class="buttons"><button id="copy" type="button">Copy brief</button><button id="save" class="alt" type="button">Save .txt file</button></div><div class="note"><strong>Manuscript safety.</strong><p>Don't paste entire unpublished books into this form. We'll arrange private file transfer once your project is accepted for assessment. This page does not accept payment for a full publishing package and does not promise a fixed price.</p></div></div></div></section>
+<section class="section wrap"><div class="note"><strong>Want editorial feedback before production?</strong> See <a href="https://copyreal.com/studio/review/">Review My Book</a>. Planning an audiobook? Try the <a href="https://copyreal.com/toolbox/calculator/">free audio calculator</a> or request a <a href="https://copyreal.com/toolbox/review/">£79 feasibility review</a>.</div></section>
+</main><footer class="foot"><div class="wrap">© 2026 Copy Real. Individual quotation, written agreement and rights checks required before work begins.</div></footer>
+<script>
+(function(){
+"use strict";
+const E=id=>document.getElementById(id),V=id=>E(id).value.trim();
+function build(){
+ const formats=Array.from(document.querySelectorAll('input[name="formats"]:checked')).map(e=>e.value);
+ if(!V("title")||!formats.length){E("status").textContent="Enter a working title and select at least one format.";return}
+ const number=Number(V("count"));
+ if(V("count")&&(number<0||number>5000000)){E("status").textContent="Check the word count.";return}
+ E("output").value="COPY REAL — PUBLISHING QUOTATION BRIEF\n\nWORKING TITLE\n"+V("title")+
+ "\n\nCATEGORY\n"+V("genre")+"\n\nAPPROXIMATE WORD COUNT\n"+(V("count")||"To be confirmed")+
+ "\n\nREQUIRED EDITIONS\n"+formats.map(x=>"- "+x).join("\n")+
+ "\n\nSOURCE MANUSCRIPT\n"+V("source")+
+ "\n\nEXISTING MATERIALS\n"+(V("assets")||"Not specified")+
+ "\n\nPREFERRED PUBLISHING ROUTE\n"+V("route")+
+ "\n\nSPECIAL REQUIREMENTS\n"+(V("notes")||"Not specified")+
+ "\n\nTO BE CONFIRMED BEFORE QUOTATION\n- Rights and permissions for text, images and audio\n- Whether substantive editing is required\n- Print trim, colour, paper and printer where relevant\n- Deliverables, revision limits, schedule and responsibility for proof approval\n- Distribution responsibilities and account ownership\n\nPrepared using Copy Real's browser-only briefing tool. This is not an order or an accepted manuscript.";
+ E("status").textContent="Brief prepared locally. Save it for a private enquiry once intake is available.";
+}
+E("build").addEventListener("click",build);
+E("copy").addEventListener("click",async()=>{if(!V("output")){E("status").textContent="Prepare a brief first.";return}try{await navigator.clipboard.writeText(E("output").value);E("status").textContent="Brief copied."}catch(e){E("status").textContent="Select the brief and copy it manually."; }});
+E("save").addEventListener("click",()=>{if(!V("output")){E("status").textContent="Prepare a brief first.";return}const blob=new Blob([E("output").value],{type:"text/plain;charset=utf-8"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="copyreal-publishing-brief.txt";document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);E("status").textContent="Quotation brief downloaded.";});
+})();
+</script></body></html>
