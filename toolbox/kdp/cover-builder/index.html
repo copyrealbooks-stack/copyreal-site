@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Paperback Cover Wrap PDF Maker | Copy Real KDP Toolbox</title>
+<meta name="description" content="Create a correctly sized one-page PDF paperback cover wrap from your own full-spread artwork. Local JPG/PNG processing, manual KDP template measurements and 300 ppi export.">
+<link rel="canonical" href="https://copyreal.com/toolbox/kdp/cover-builder/">
+<style>
+:root{--ink:#13252e;--teal:#086b77;--bg:#f3f7f8;--line:#c9dde1;--gold:#b87718}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.56 system-ui,-apple-system,"Segoe UI",sans-serif}a{color:var(--teal)}.wrap{max-width:1050px;margin:auto;padding:0 19px}.top{background:#112630;color:#fff}.top .wrap{display:flex;gap:17px;align-items:center;flex-wrap:wrap;padding-top:16px;padding-bottom:16px}.top a{color:#fff;text-decoration:none}.top a:first-child{font-weight:850;letter-spacing:.08em;margin-right:auto}.hero{padding:36px 0;background:linear-gradient(115deg,#112630,#0b5961);color:#fff}.hero p{color:#d6ebeb;max-width:800px}h1,h2{letter-spacing:-.035em;line-height:1.19}h1{font-size:clamp(2rem,5vw,3.1rem);margin:8px 0}.main{padding:28px 0 50px}.card{border:1px solid var(--line);border-radius:13px;background:white;padding:22px;margin-bottom:20px}.card h2{margin:0 0 11px;font-size:1.35rem}.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}.field{margin:0 0 16px}label{font-weight:700;display:block;font-size:.9rem;margin-bottom:5px}input,select{display:block;width:100%;border:1px solid #93acb4;border-radius:8px;padding:10px;font:inherit;background:white;color:var(--ink)}input[type=checkbox]{width:auto}button,.button{border:0;border-radius:9px;padding:12px 17px;background:var(--teal);color:white;font:inherit;font-weight:750;cursor:pointer;text-decoration:none;display:inline-block}button:disabled{opacity:.55;cursor:not-allowed}button.secondary{background:#dce9ec;color:var(--ink)}:focus-visible{outline:3px solid #e0a744;outline-offset:2px}button:hover:not(:disabled){filter:brightness(.92)}.actions{display:flex;gap:11px;flex-wrap:wrap;margin:14px 0}.muted,small{color:#566d75}.note{background:#fff5df;border:1px solid #edd39d;padding:15px;border-radius:10px;margin:18px 0}.result{border:1px solid #b8d8d1;background:#eef8f4;border-radius:10px;padding:15px;white-space:pre-wrap}.status{font-weight:650;min-height:1.5em}.previewbox{background:#e6eded;padding:14px;border-radius:12px;text-align:center;overflow:auto}canvas{max-width:100%;height:auto;border:1px solid #778d91;background:white}hr{border:0;border-top:1px solid var(--line);margin:22px 0}footer{background:#112630;color:#d2e6e8;padding:23px 0;font-size:.86rem}footer a{color:#c0e8e8}.step{margin-bottom:11px}.warning{color:#8b4b05}a.btn-secondary{display:inline-block;border:1px solid var(--teal);border-radius:8px;padding:8px 12px;text-decoration:none}ul{padding-left:20px}@media(max-width:660px){.two{grid-template-columns:1fr}.card{padding:17px}}
+</style>
+</head><body>
+<header class="top"><nav class="wrap"><a href="https://copyreal.com">COPY REAL TOOLBOX</a><a href="../">KDP preflight</a><a href="https://copyreal.com/toolbox/">All free tools</a><a href="https://copyreal.com/publish/">Publishing services</a></nav></header>
+<section class="hero"><div class="wrap"><small style="color:#afded9">LOCAL COVER UTILITY · PAPERBACK BETA</small><h1>Paperback Cover Wrap PDF Maker</h1><p>Convert your own complete front–spine–back cover artwork into a PDF at the physical dimensions required by your KDP paperback template. Nothing is uploaded; the image is processed in your browser.</p></div></section>
+<main class="main wrap"><div class="note"><strong>Read this first.</strong> This tool creates an accurately sized <em>candidate</em> PDF; it does not design a cover, repair low-resolution images, create barcode clearance, validate ISBN metadata or certify KDP acceptance. Use the exact spine measurement and check every edge against the official <a href="https://kdp.amazon.com/cover-calculator">KDP template</a> and KDP Print Previewer. <strong>Paperback only.</strong> Hardcover hinge and case-laminate dimensions differ.</div>
+<div class="card"><h2>1. Enter your official paperback measurements</h2><div class="two">
+<div class="field"><label for="trimW">Trim width, inches</label><input id="trimW" type="number" value="6" min="3" max="12" step="0.001"></div>
+<div class="field"><label for="trimH">Trim height, inches</label><input id="trimH" type="number" value="9" min="4" max="14" step="0.001"></div>
+<div class="field"><label for="spine">Spine width from your KDP cover template, inches</label><input id="spine" type="number" min="0.01" max="5" step="0.0001" placeholder="Copy the exact number from KDP"></div>
+<div class="field"><label for="bleed">Outside bleed per edge, inches</label><input id="bleed" type="number" value="0.125" readonly aria-describedby="bleedHelp"><small id="bleedHelp">Fixed at 0.125 inches for this paperback tool.</small></div></div>
+<div class="result" id="dimensions" role="status">Enter the official spine width to calculate your cover's physical dimensions.</div></div>
+<div class="card"><h2>2. Add your complete wrap artwork</h2><p>Your image should already contain the <strong>back cover on the left, the spine in the centre, and the front cover on the right</strong>, including the outside bleed. This tool does not assemble three separate images.</p>
+<div class="field"><label for="art">Full-spread cover image (JPG or PNG; maximum 35 MB)</label><input type="file" id="art" accept="image/jpeg,image/png" aria-describedby="imageHelp"><small id="imageHelp">No manuscript, artwork or file name is transmitted to Copy Real.</small></div>
+<div class="two"><div class="field"><label for="fit">How should the image fill the wrap?</label><select id="fit"><option value="cover">Fill entire wrap, cropping edges if necessary</option><option value="contain">Show complete image, with background margins if necessary</option></select></div>
+<div class="field"><label for="background">Background colour for margins</label><input id="background" type="color" value="#ffffff"></div></div>
+<p class="muted">If the source image has the wrong aspect ratio, filling will crop it; fitting the whole image may leave empty margins. Neither option can reconstruct missing bleed or reposition text. For critical print work, adjust the artwork to the actual KDP template first.</p>
+<div class="actions"><button id="preview" type="button">Preview dimensions and guides</button><button id="export" type="button" disabled>Download measured paperback PDF</button><button id="report" type="button" class="secondary">Download preflight notes</button></div>
+<p id="message" class="status" role="status"></p>
+<div class="previewbox"><canvas id="canvas" width="740" height="410" aria-label="Preview of the full cover with printed trim and spine guides"></canvas></div>
+<p class="muted"><small>Dashed red lines in the preview indicate approximate vertical panel and trim guides. They are <strong>excluded from the exported PDF</strong>. Artwork, including any text near the spine or barcode area, must be checked manually.</small></p></div>
+<div class="card"><h2>3. Review before uploading</h2>
+<ul><li class="step">Confirm format, paper and page count against the exact KDP cover template used to obtain the spine width.</li>
+<li class="step">Inspect whether the existing full-wrap design contains all required elements and actual bleed artwork.</li>
+<li class="step">Check the exported PDF page size against the official template and inspect its spine and panel alignment.</li>
+<li class="step">Check the back-cover barcode exclusion area; do not draw a placeholder barcode unless instructed by your chosen publisher.</li>
+<li class="step">Upload the PDF to <strong>KDP Print Previewer</strong>, inspect every warning and order a proof when appropriate.</li></ul>
+<p class="note">This utility exports a single-page, RGB JPEG-image PDF. Text is rasterised: if your design needs crisp vector typography, colour-managed print or a non-standard cover specification, use professional layout software or request assistance.</p>
+<p><a href="../">Back to the KDP checklist</a> · <a href="mailto:copyrealbooks@gmail.com?subject=Copy%20Real%20KDP%20cover%20repair%20enquiry&body=Hello%20Copy%20Real%2C%0A%0AI%20have%20a%20cover%20wrap%20problem.%0A%0APaperback%20trim%20size%3A%0ASpine%20width%20from%20official%20template%3A%0AExact%20KDP%20rejection%20message%3A%0A">Request a KDP cover repair quotation</a></p></div></main>
+<footer><div class="wrap">© 2026 Copy Real. Unofficial independent preparation tool, not affiliated with Amazon KDP. No image upload or automatic platform acceptance guarantee.</div></footer>
+<script>
+(function(){
+"use strict";
+const e=id=>document.getElementById(id),val=id=>Number(e(id).value),msg=t=>{e("message").textContent=t};
+let img=null,imgName="",imageSize=0,sourceUrl=null,ready=false,metrics=null;
+function dimensions(){
+ const w=val("trimW"),h=val("trimH"),s=val("spine");
+ if(!Number.isFinite(w)||!Number.isFinite(h)||!Number.isFinite(s)||w<3||w>12||h<4||h>14||s<.01||s>5)return null;
+ const ww=2*w+s+.25,hh=h+.25;
+ const pxW=Math.round(ww*300),pxH=Math.round(hh*300);
+ if(pxW>9000||pxH>9000||pxW*pxH>26000000)return null;
+ return {w,h,s,ww,hh,pxW,pxH,ptW:ww*72,ptH:hh*72};
+}
+function refreshDimensions(){
+ metrics=dimensions();ready=false;e("export").disabled=true;
+ if(!metrics){e("dimensions").textContent="Enter valid trim measurements and the exact spine width from your official paperback cover template.";return}
+ const m=metrics;
+ e("dimensions").textContent="Full wrap: "+m.ww.toFixed(4)+" × "+m.hh.toFixed(4)+" inches ("+m.ptW.toFixed(3)+" × "+m.ptH.toFixed(3)+" PDF points).\n300 ppi output: "+m.pxW+" × "+m.pxH+" pixels. Panel order: BACK | SPINE | FRONT.";
+}
+["trimW","trimH","spine"].forEach(id=>e(id).addEventListener("input",refreshDimensions));
+e("art").addEventListener("change",ev=>{
+ const file=ev.target.files&&ev.target.files[0];img=null;ready=false;e("export").disabled=true;
+ if(sourceUrl){URL.revokeObjectURL(sourceUrl);sourceUrl=null}
+ if(!file){msg("No image selected.");return}
+ if(!["image/png","image/jpeg"].includes(file.type)||file.size>35*1024*1024){msg("Please choose a JPG or PNG under 35 MB.");return}
+ imageSize=file.size;imgName=file.name;sourceUrl=URL.createObjectURL(file);
+ const next=new Image();next.onload=()=>{img=next;msg("Image loaded ("+img.naturalWidth+" × "+img.naturalHeight+" px). Preview before exporting.");};
+ next.onerror=()=>{img=null;msg("This image could not be decoded. Try a standard JPG or PNG.")};next.src=sourceUrl;
+});
+function draw(c,ctx,m,guide){
+ const bw=c.width,bh=c.height;
+ ctx.clearRect(0,0,bw,bh);
+ ctx.fillStyle=e("background").value||"#ffffff";ctx.fillRect(0,0,bw,bh);
+ if(img){
+  const fw=bw/img.naturalWidth,fh=bh/img.naturalHeight,scale=e("fit").value==="contain"?Math.min(fw,fh):Math.max(fw,fh);
+  const dw=img.naturalWidth*scale,dh=img.naturalHeight*scale,dx=(bw-dw)/2,dy=(bh-dh)/2;
+  ctx.drawImage(img,dx,dy,dw,dh);
+ }
+ if(guide){
+  const inchX=bw/m.ww,inchY=bh/m.hh;
+  const at=[.125,.125+m.w,.125+m.w+m.s,.125+2*m.w+m.s];
+  ctx.lineWidth=Math.max(1,bw/750);ctx.strokeStyle="#d91f36";ctx.setLineDash([9,6]);
+  at.forEach(x=>{const xx=x*inchX;ctx.beginPath();ctx.moveTo(xx,0);ctx.lineTo(xx,bh);ctx.stroke()});
+  [.125,m.hh-.125].forEach(y=>{const yy=y*inchY;ctx.beginPath();ctx.moveTo(0,yy);ctx.lineTo(bw,yy);ctx.stroke()});ctx.setLineDash([]);
+ }
+}
+function rasterPreview(){
+ refreshDimensions();
+ if(!metrics){msg("Supply valid measurements before previewing.");return}
+ if(!img){msg("Choose a complete front–spine–back image first.");return}
+ const m=metrics,c=e("canvas");c.width=900;c.height=Math.max(200,Math.round(900*m.hh/m.ww));
+ draw(c,c.getContext("2d",{alpha:false}),m,true);
+ let scale=e("fit").value==="contain"?Math.min(m.pxW/img.naturalWidth,m.pxH/img.naturalHeight):Math.max(m.pxW/img.naturalWidth,m.pxH/img.naturalHeight);
+ let effective=300/scale;
+ msg("Preview ready. Source "+img.naturalWidth+" × "+img.naturalHeight+" pixels; effective source resolution approximately "+effective.toFixed(0)+" ppi at the chosen fit. "+(effective<300?"WARNING: upscaling cannot restore detail. ":"")+"Guide lines appear in the preview only.");
+ ready=true;e("export").disabled=false;
+}
+e("preview").addEventListener("click",rasterPreview);
+["fit","background"].forEach(id=>e(id).addEventListener("change",()=>{ready=false;e("export").disabled=true;msg("Setting changed. Preview again before exporting.")}));
+function jpegBytes(canvas){
+ const url=canvas.toDataURL("image/jpeg",.94);
+ if(!url.startsWith("data:image/jpeg;base64,"))throw new Error("JPEG encoding is unavailable");
+ const s=atob(url.slice(url.indexOf(",")+1)),b=new Uint8Array(s.length);
+ for(let i=0;i<s.length;i++)b[i]=s.charCodeAt(i);return b;
+}
+function pdfFromJpeg(jpg,widthPixels,heightPixels,widthPoints,heightPoints){
+ const enc=new TextEncoder(),chunks=[];let pos=0;const offsets=[0];
+ function push(x){const b=typeof x==="string"?enc.encode(x):x;chunks.push(b);pos+=b.byteLength}
+ function start(n){offsets[n]=pos;push(n+" 0 obj\n")}
+ function end(){push("\nendobj\n")}
+ const wp=widthPoints.toFixed(5),hp=heightPoints.toFixed(5);
+ push("%PDF-1.4\n");push(new Uint8Array([37,226,227,207,211,10]));
+ start(1);push("<< /Type /Catalog /Pages 2 0 R >>");end();
+ start(2);push("<< /Type /Pages /Kids [3 0 R] /Count 1 >>");end();
+ start(3);push("<< /Type /Page /Parent 2 0 R /MediaBox [0 0 "+wp+" "+hp+"] /Resources << /XObject << /Im1 4 0 R >> >> /Contents 5 0 R >>");end();
+ start(4);push("<< /Type /XObject /Subtype /Image /Width "+widthPixels+" /Height "+heightPixels+" /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length "+jpg.byteLength+" >>\nstream\n");push(jpg);push("\nendstream");end();
+ const stream="q\n"+wp+" 0 0 "+hp+" 0 0 cm\n/Im1 Do\nQ\n";
+ start(5);push("<< /Length "+enc.encode(stream).byteLength+" >>\nstream\n"+stream+"endstream");end();
+ const xref=pos;push("xref\n0 6\n0000000000 65535 f \n");
+ for(let i=1;i<=5;i++)push(String(offsets[i]).padStart(10,"0")+" 00000 n \n");
+ push("trailer\n<< /Size 6 /Root 1 0 R >>\nstartxref\n"+xref+"\n%%EOF\n");
+ return new Blob(chunks,{type:"application/pdf"});
+}
+function download(blob,name){const u=URL.createObjectURL(blob),a=document.createElement("a");a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),60000)}
+e("export").addEventListener("click",()=>{
+ if(!ready||!metrics||!img){msg("Load an image and preview it before exporting.");return}
+ try{
+  msg("Preparing 300 ppi PDF in your browser...");
+  const m=metrics,c=document.createElement("canvas");c.width=m.pxW;c.height=m.pxH;
+  const context=c.getContext("2d",{alpha:false});if(!context)throw new Error("Canvas unavailable");
+  draw(c,context,m,false);
+  const jpg=jpegBytes(c),pdf=pdfFromJpeg(jpg,c.width,c.height,m.ptW,m.ptH);
+  const base=(imgName||"cover").replace(/\.[^.]+$/,"").replace(/[^A-Za-z0-9_-]/g,"_").slice(0,65);
+  download(pdf,(base||"CopyReal")+"_KDP_Paperback_Wrap.pdf");
+  msg("PDF download requested. One page: "+m.ww.toFixed(4)+" × "+m.hh.toFixed(4)+" inches. Confirm page size and inspect the PDF in KDP Print Previewer.");
+ }catch(error){msg("Export failed: "+(error&&error.message?error.message:"Not enough browser memory, or unsupported image"))}
+});
+e("report").addEventListener("click",()=>{
+ const m=dimensions();
+ const content="COPY REAL PAPERBACK PDF WRAP PREP NOTES\n\n"+new Date().toISOString()+"\nSource image: "+(imgName||"none")+"\nSource dimensions: "+(img?img.naturalWidth+" × "+img.naturalHeight:"unavailable")+"\nSource bytes: "+imageSize+"\nTrim width: "+(m?m.w:"not set")+"\nTrim height: "+(m?m.h:"not set")+"\nOfficial template spine: "+(m?m.s:"not set")+"\nCalculated wrap dimensions: "+(m?m.ww.toFixed(4)+" × "+m.hh.toFixed(4):"not calculated")+" inches\nRaster target: "+(m?m.pxW+" × "+m.pxH:"n/a")+" pixels\nImage placement: "+e("fit").value+"\n\nCAVEATS\nPaperback only. Export is an image-based RGB PDF, not a KDP certification. The cover must already contain correctly laid out back, spine and front artwork, true bleed, barcode clearance and safe placement of text. Check against current official KDP template and Print Previewer. Low-res artwork cannot be repaired by upscaling.\n";
+ download(new Blob([content],{type:"text/plain;charset=utf-8"}),"CopyReal_KDP_Cover_Preflight_Notes.txt");
+});
+refreshDimensions();
+})();
+</script></body></html>
