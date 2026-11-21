@@ -12,7 +12,8 @@ const core=[
 'toolbox/kdp/cover-builder/index.html',
 'toolbox/kdp/rejection-decoder/index.html',
 'toolbox/calculator/index.html','toolbox/adsense/index.html',
-'toolbox/review/index.html','privacy/index.html','services/terms/index.html'
+'toolbox/review/index.html','privacy/index.html','services/terms/index.html',
+'services/kdp-upload-rescue/index.html','services/audiobook-production/index.html'
 ];
 const bad=[];
 function fail(message){bad.push(message);console.error('FAIL:',message)}
@@ -42,9 +43,14 @@ for(const p of core){
   const dest=localTarget(p,hit[1]);
   if(dest&&!fs.existsSync(dest))fail(p+': missing local destination '+hit[1]);
  }
- for(const hit of html.matchAll(/<script(?:\s+[^>]*)?>([\s\S]*?)<\/script>/gi)){
-  const js=hit[1].trim();if(!js)continue;
-  try{new vm.Script(js,{filename:p})}catch(e){fail(p+': embedded JavaScript failed parse: '+e.message)}
+ for(const hit of html.matchAll(/<script([^>]*)>([\s\S]*?)<\/script>/gi)){
+  const attrs=hit[1]||'',body=hit[2].trim();if(!body)continue;
+  if(/type=["']application\/ld\+json["']/i.test(attrs)){
+   try{const json=JSON.parse(body);if(json['@context']!=='https://schema.org')fail(p+': unexpected JSON-LD context')}
+   catch(e){fail(p+': invalid JSON-LD: '+e.message)}
+  }else{
+   try{new vm.Script(body,{filename:p})}catch(e){fail(p+': embedded JavaScript failed parse: '+e.message)}
+  }
  }
  if(/NOT YET ACCEPTING PAYMENTS/.test(html)&&p==='toolbox/review/index.html')fail('Stale payment-preview copy');
 }
@@ -62,6 +68,18 @@ const links=[
 ];
 const home=fs.readFileSync(path.join(root,'index.html'),'utf8');
 for(const [name,url] of links)if(!home.includes(url)&&!fs.readFileSync(path.join(root,'toolbox/review/index.html'),'utf8').includes(url))fail('Checkout link missing: '+name);
+
+const requiredFunnels=[
+ ['index.html','services/kdp-upload-rescue/','Homepage KDP help'],
+ ['toolbox/calculator/index.html','https://copyreal.com/toolbox/review/','Audiobook calculator to review'],
+ ['toolbox/kdp/rejection-decoder/index.html','https://copyreal.com/services/kdp-upload-rescue/','Decoder to paid repair'],
+ ['studio/index.html','https://copyreal.com/services/audiobook-production/','Studio to audio service'],
+ ['services/audiobook-production/index.html','https://book.stripe.com/9B6dRbgte89i77eaiWaIM00','Audio landing to checkout'],
+ ['services/kdp-upload-rescue/index.html','copyrealbooks@gmail.com','KDP landing to enquiries']
+];
+for(const [file,required,description] of requiredFunnels){
+ if(!fs.readFileSync(path.join(root,file),'utf8').includes(required))fail('Broken acquisition funnel: '+description);
+}
 console.log('Checked '+core.length+' core pages, HTML script syntax, static links, sitemap and payment link presence.');
 if(bad.length){console.error(bad.length+' error(s).');process.exit(1)}
 console.log('PASS: no static site errors detected. This does not validate public deployment, checkout payment completion or print-production quality.');
